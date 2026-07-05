@@ -101,7 +101,7 @@
         "YK26001035": { name: "CUMAR MAXAMUD XIRSI", total: "663", avg: "60.27", grade: "C-", status: "PASS" },
         "YK26001021": { name: "C/LADIF C/LAHI MAXAMED", total: "662", avg: "60.18", grade: "C-", status: "PASS" },
         "YK26001026": { name: "NUUR CISMAAN MAXAMED", total: "660", avg: "60.00", grade: "C-", status: "PASS" }
-        "YK26001036": { name: "GUULEED SAALAX CALI" , "total: "662", avg: "60.18", grade: "C-", status: "PASS" },
+    
     };
 
     function searchResult() {
@@ -122,7 +122,7 @@
             
             const status = document.getElementById('rStatus');
             status.innerText = student.status;
-            status.className = student.status === 'PASS' ? "badge pass" : "badge fail";
+            status.className = student.status === 'GUDBAY' ? "badge pass" : "badge DHACAY";
             
             resBox.style.display = "block";
         } else {
