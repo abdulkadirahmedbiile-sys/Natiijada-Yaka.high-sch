@@ -148,4 +148,41 @@
     }
 </script>
 </body>
+</htm        "YK26001026": { name: "NUUR CISMAAN MAXAMED", total: "660", avg: "60.00", grade: "C-", status: "PASS" }
+    };
+
+    function searchResult() {
+        const input = document.getElementById('rollNo').value.trim().toUpperCase();
+        const resBox = document.getElementById('result');
+        const errBox = document.getElementById('error');
+        if(!input) { alert("Fadlan qor Roll Number-ka!"); return; }
+
+        const student = ardaydaXogta[input];
+
+        if(student) {
+            errBox.style.display = "none";
+            document.getElementById('rName').innerText = student.name;
+            document.getElementById('rRoll').innerText = input;
+            document.getElementById('rTotal').innerText = student.total;
+            document.getElementById('rAvg').innerText = student.avg;
+            document.getElementById('rGrade').innerText = student.grade;
+            
+            const status = document.getElementById('rStatus');
+            status.innerText = student.status;
+            
+            // Xaqiijinta in style-ka badjiga uu u beddelmo si sax ah
+            if(student.status === 'PASS') {
+                status.className = "badge pass";
+            } else {
+                status.className = "badge fail";
+            }
+            
+            resBox.style.display = "block";
+        } else {
+            resBox.style.display = "none"; 
+            errBox.style.display = "block";
+        }
+    }
+</script>
+</body>
 </html>
