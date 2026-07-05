@@ -8,8 +8,23 @@
         :root { --primary: #1e3a8a; --bg: #f3f4f6; --dark: #1f2937; }
         body { font-family: Arial, sans-serif; background: var(--bg); margin: 0; padding: 15px; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
         .card { background: white; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); width: 100%; max-width: 500px; text-align: center; box-sizing: border-box; }
-        .logo { width: 90px; height: 90px; margin: 0 auto 15px; background: #e5e7eb; border-radius: 50%; display: flex; justify-content: center; align-items: center; overflow: hidden; }
-        .logo img { width: 100%; height: 100%; object-fit: cover; }
+        
+        /* Qaybta Logo-ga ee la habeeyay si sawirku u soo baxo oo dhan */
+        .logo-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+        .portal-logo {
+            width: 100%;
+            max-width: 160px; /* Halkan kor ama hoos ugu rari karto weyninka logo-ga */
+            height: auto;
+            display: block;
+            object-fit: contain;
+        }
+
         h1 { color: var(--primary); font-size: 22px; margin: 0 0 5px; text-transform: uppercase; }
         h2 { color: #6b7280; font-size: 14px; margin: 0 0 25px; }
         .input-group { text-align: left; margin-bottom: 20px; }
@@ -26,21 +41,17 @@
         .val { color: var(--dark); font-weight: 500; }
         .badge { padding: 2px 8px; border-radius: 12px; font-weight: bold; font-size: 12px; text-transform: uppercase; }
         .pass { background: #dcfce7; color: #16a34a; }
-       .fail { background: #fee2e2; color: #dc2626; }
-        .portal-logo {
-    width: 100%;
-    max-width: 140px;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-    object-fit: contain;
-}
+        .fail { background: #fee2e2; color: #dc2626; }
     </style>
 </head>
 <body>
 
 <div class="card">
-    <div class="logo"><img src="LOGOJPG.jpg.jpeg" alt="Logo" class="portal-logo"></div>
+    <!-- Qaybta HTML ee logo-ga oo loo dhiibay class-ka saxda ah -->
+    <div class="logo-container">
+        <img src="LOGOJPG.jpg.jpeg" alt="Logo" class="portal-logo">
+    </div>
+    
     <h1>BIILE EXAMINATION BOARD BEB</h1>
     <h2>Academic Year: 2025 - 2026</h2>
     
@@ -101,7 +112,6 @@
         "YK26001035": { name: "CUMAR MAXAMUD XIRSI", total: "663", avg: "60.27", grade: "C-", status: "PASS" },
         "YK26001021": { name: "C/LADIF C/LAHI MAXAMED", total: "662", avg: "60.18", grade: "C-", status: "PASS" },
         "YK26001026": { name: "NUUR CISMAAN MAXAMED", total: "660", avg: "60.00", grade: "C-", status: "PASS" }
-    
     };
 
     function searchResult() {
@@ -122,7 +132,13 @@
             
             const status = document.getElementById('rStatus');
             status.innerText = student.status;
-            status.className = student.status === 'GUDBAY' ? "badge pass" : "badge DHACAY";
+            
+            // Xaqiijinta in style-ka badjiga uu u beddelmo si sax ah
+            if(student.status === 'PASS') {
+                status.className = "badge pass";
+            } else {
+                status.className = "badge fail";
+            }
             
             resBox.style.display = "block";
         } else {
