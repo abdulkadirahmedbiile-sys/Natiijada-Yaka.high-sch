@@ -78,7 +78,7 @@
 
 <script>
     const ardaydaXogta = {
-        "YK26001000": { name: "AYAAN CABDI AXMED", total: "1059", avg: "96.27", grade: "A+", status: "PASS" },
+        "YK26001000": { name: "AYAAN CABDI AXMED", total: "1059", avg: "96.27", grade: "A+", status: "PASS" , isPaid: false },
         "YK26001002": { name: "AMIINO CUMAR C/LAAHI", total: "949", avg: "86.27", grade: "A", status: "PASS" },
         "YK26001006": { name: "FAWSIYO C/QADIR MAXAMED", total: "944", avg: "85.81", grade: "A", status: "PASS" },
         "YK26001003": { name: "DEEQO C/RASHID MAXAMED", total: "942", avg: "85.63", grade: "A", status: "PASS" },
@@ -116,75 +116,42 @@
         "YK26001026": { name: "NUUR CISMAAN MAXAMED", total: "660", avg: "60.00", grade: "C-", status: "PASS" }
     };
 
-    function searchResult() {
-        const input = document.getElementById('rollNo').value.trim().toUpperCase();
-        const resBox = document.getElementById('result');
-        const errBox = document.getElementById('error');
-        if(!input) { alert("Fadlan qor Roll Number-ka!"); return; }
-
-        const student = ardaydaXogta[input];
-
-        if(student) {
-            errBox.style.display = "none";
-            document.getElementById('rName').innerText = student.name;
-            document.getElementById('rRoll').innerText = input;
-            document.getElementById('rTotal').innerText = student.total;
-            document.getElementById('rAvg').innerText = student.avg;
-            document.getElementById('rGrade').innerText = student.grade;
-            
-            const status = document.getElementById('rStatus');
-            status.innerText = student.status;
-            
-            // Xaqiijinta in style-ka badjiga uu u beddelmo si sax ah
-            if(student.status === 'PASS') {
-                status.className = "badge pass";
-            } else {
-                status.className = "badge fail";
-            }
-            
-            resBox.style.display = "block";
-        } else {
-            resBox.style.display = "none"; 
-            errBox.style.display = "block";
-        }
+function searchResult() {
+    const input = document.getElementById('rollNo').value.trim().toUpperCase();
+    const resBox = document.getElementById('result');
+    const errBox = document.getElementById('error');
+    
+    if(!input) { 
+        alert("Fadlan qor Roll Number-ka!"); 
+        return; 
     }
-</script>
-</body>
-</htm        "YK26001026": { name: "NUUR CISMAAN MAXAMED", total: "660", avg: "60.00", grade: "C-", status: "PASS" }
-    };
 
-    function searchResult() {
-        const input = document.getElementById('rollNo').value.trim().toUpperCase();
-        const resBox = document.getElementById('result');
-        const errBox = document.getElementById('error');
-        if(!input) { alert("Fadlan qor Roll Number-ka!"); return; }
+    const student = ardaydaXogta[input];
 
-        const student = ardaydaXogta[input];
-
-        if(student) {
-            errBox.style.display = "none";
-            document.getElementById('rName').innerText = student.name;
-            document.getElementById('rRoll').innerText = input;
-            document.getElementById('rTotal').innerText = student.total;
-            document.getElementById('rAvg').innerText = student.avg;
-            document.getElementById('rGrade').innerText = student.grade;
-            
-            const status = document.getElementById('rStatus');
-            status.innerText = student.status;
-            
-            // Xaqiijinta in style-ka badjiga uu u beddelmo si sax ah
-            if(student.status === 'PASS') {
-                status.className = "badge pass";
-            } else {
-                status.className = "badge fail";
-            }
-            
-            resBox.style.display = "block";
-        } else {
-            resBox.style.display = "none"; 
+    if(student) {
+                if (student.isPaid == "false") {
             errBox.style.display = "block";
+            errBox.innerText = "Fadlan iska bixi lacagta lagugu leeyahay!";
+            resBox.style.display = "none";
+            return;
         }
+
+        // 2. Haddii uu bixiyay, u muuji xogtiisa
+        errBox.style.display = "none";
+        document.getElementById('rName').innerText = student.name;
+        document.getElementById('rRoll').innerText = input;
+        document.getElementById('rTotal').innerText = student.total;
+        document.getElementById('rAvg').innerText = student.avg;
+        document.getElementById('rGrade').innerText = student.grade;
+
+        const statusInner = document.getElementById('rStatus');
+        statusInner.innerText = student.status;
+        
+        resBox.style.display = "block";
+    } else {
+        // 3. Haddii Roll Number-ku khaldan yahay
+        errBox.innerText = "Roll Number-kaas waa khalad! Ka hubi kaarkaagii imtixaanka.";
+        errBox.style.display = "block";
+        resBox.style.display = "none";
     }
-</script>
-</body>
-</html>
+}
