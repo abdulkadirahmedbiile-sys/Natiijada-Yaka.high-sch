@@ -129,14 +129,13 @@ function searchResult() {
     const student = ardaydaXogta[input];
 
     if(student) {
-                if (student.isPaid == "false") {
+        if (student.isPaid === false) {
             errBox.style.display = "block";
             errBox.innerText = "Fadlan iska bixi lacagta lagugu leeyahay!";
             resBox.style.display = "none";
             return;
         }
 
-        // 2. Haddii uu bixiyay, u muuji xogtiisa
         errBox.style.display = "none";
         document.getElementById('rName').innerText = student.name;
         document.getElementById('rRoll').innerText = input;
@@ -149,7 +148,6 @@ function searchResult() {
         
         resBox.style.display = "block";
     } else {
-        // 3. Haddii Roll Number-ku khaldan yahay
         errBox.innerText = "Roll Number-kaas waa khalad! Ka hubi kaarkaagii imtixaanka.";
         errBox.style.display = "block";
         resBox.style.display = "none";
