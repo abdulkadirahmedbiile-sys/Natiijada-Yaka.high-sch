@@ -212,28 +212,25 @@
                 resultDiv.style.display = "block";
                 resultDiv.classList.add("error");
                 resultDiv.innerHTML = "FADLAN ISKA BIXI LACAGTA KUGU TAAGAN.";
-            } else {
-                resultDiv.style.display = "block";
-                resultDiv.classList.add("success");
-                resultDiv.innerHTML = `
-                    <div class="result-title">NATIIJADA ARDAYGA</div>
-                    <div class="result-item"><span>Magaca:</span> ${student.name}</div>
-                                    resultDiv.innerHTML = `
-                    <div class="result-title">NATIIJADA ARDAYGA</div>
-                    <div class="result-item"><span>Magaca:</span> ${student.name}</div>
-                    <div class="result-item"><span>Roll No:</span> ${idInput}</div>
-                    <div class="result-item"><span>Bedelka Guud (Total):</span> ${student.total}</div>
-                    <div class="result-item"><span>Celcelis (Avg):</span> ${student.avg}%</div>
-                    <div class="result-item"><span>Darajo (Grade):</span> ${student.grade}</div>
-                    <div class="result-item total-row" style="color: #234e52;"><span>Xaaladda (Status):</span> ${student.status}</div>
-                `;
-            }
-        } else {
+                   } else {
             resultDiv.style.display = "block";
-            resultDiv.classList.add("error");
-            resultDiv.innerHTML = "Ma jiro arday leh Roll No-gaan. Fadlan hubi.";
+            resultDiv.classList.add("success");
+            resultDiv.innerHTML = `
+                <div class="result-title">NATIIJADA ARDAYGA</div>
+                <div class="result-item"><span>Magaca:</span> ${student.name}</div>
+                <div class="result-item"><span>Roll No:</span> ${idInput}</div>
+                <div class="result-item"><span>Bedelka Guud (Total):</span> ${student.total}</div>
+                <div class="result-item"><span>Celcelis (Avg):</span> ${student.avg}%</div>
+                <div class="result-item"><span>Darajo (Grade):</span> ${student.grade}</div>
+                <div class="result-item total-row" style="color: #234e52;"><span>Xaaladda (Status):</span> ${student.status}</div>
+            `;
         }
+    } else {
+        resultDiv.style.display = "block";
+        resultDiv.classList.add("error");
+        resultDiv.innerHTML = "Ma jiro arday leh Roll No-gaan. Fadlan hubi.";
     }
+}
 </script>
 
 </body>
