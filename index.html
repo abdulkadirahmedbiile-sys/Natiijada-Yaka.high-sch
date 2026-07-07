@@ -123,10 +123,10 @@
 
     <div class="form-group">
         <label for="studentId">Geli Roll No kaaga:</label>
-        <input type="text" id="studentId" placeholder="Tusaale: YK26001001">
+        <input type="text" id="studentId" placeholder="Tusaale: YK260010...">
     </div>
 
-    <button onclick="checkResult()">Eeg Natiijada</button>
+    <button onclick="checkResult()">Hel Natiijadaada</button>
 
     <div id="result" class="result-box"></div>
 </div>
@@ -142,7 +142,8 @@
         "YK26001020": { name: "C/SHAKUR C/KHALIF MAXU'D", school: "YAKA HIGH SCHOOL", class: "FORM1", islam: 91, arabi: 92, phy: 78, math: 60, som: 86, bio: 72, chem: 87, ict: 100, eng: 95, geo: 97, his: 80, total: 938, avg: "85.27", grade: "A", status: "PASS", admin: "ENG.AHMED BIILE", hasDebt: false },
         "YK26001001": { name: "ASIYO MAXAMED BARRE", school: "YAKA HIGH SCHOOL", class: "FORM3", islam: 100, arabi: 100, phy: 86, math: 70, som: 100, bio: 70, chem: 55, ict: 80, eng: 83, geo: 93, his: 96, total: 933, avg: "84.82", grade: "B+", status: "PASS", admin: "ENG.AHMED BIILE", hasDebt: false },
         "YK26001019": { name: "MAXAMED C/QANI CALI", school: "YAKA HIGH SCHOOL", class: "FORM1", islam: 91, arabi: 92, phy: 66, math: 50, som: 92, bio: 64, chem: 50, ict: 88, eng: 94, geo: 93, his: 98, total: 878, avg: "79.82", grade: "B", status: "PASS", admin: "ENG.AHMED BIILE", hasDebt: false },
-        "YK26001004": { name: "ASMAA SIICID MAXAMED", school: "YAKA HIGH SCHOOL", class: "FORM1", islam: 51, arabi: 91, phy: 65, math: 60, som: 100, bio: 54, chem: 70, ict: 100, eng: 93, geo: 88, his: 96, total: 868, avg: "78.91", grade: "B", status: "PASS", admin: "ENG.AHMED BIILE", hasDebt: false }
+        "YK26001004": { name: "ASMAA SIICID MAXAMED", school: "YAKA HIGH SCHOOL", class: "FORM1", islam: 51, arabi: 91, phy: 65, math: 60, som: 100, bio: 54, chem: 70, ict: 100, eng: 93, geo: 88, his: 96, total: 868, avg: "78.91", grade: "B", status: "PASS", admin: "ENG.AHMED BIILE", hasDebt: false },
+        "YK26001005": { name: "C/MALIK CISMAN C/LAHI", school:"YAKA HIGH SCHOOL", class: "FORM3", islam: 100, arabi: 100, phy: 61, math: 56, som:96, bio: 76, chem: 60, ict: 80, eng: 75, geo: 70, his:95, total: 864, avg: "78.55", grade: "B", status: "PASS", admin: "ENG.AHMED BIILE", hasDebt: false }
     };
 
     function checkResult() {
@@ -171,7 +172,7 @@
                 resultDiv.style.display = "block";
                 resultDiv.classList.add("success");
                 resultDiv.innerHTML = `
-                    <div class="result-title">BIILE EXAMINATION BOARD</div>
+                    <div class="result-title">NATIIJADA ARDAYGA</div>
                     
                     <div style="background: #edf2f7; padding: 10px; border-radius: 6px; margin-bottom: 15px; font-size: 14px;">
                         <div style="display:flex; justify-content:space-between; margin-bottom:5px;"><span>Magaca:</span> ${student.name}</div>
@@ -195,13 +196,13 @@
                 </div>
 
                 <div style="margin-top: 15px; background: #e6fffa; padding: 10px; border-radius: 6px; font-size: 14px;">
-                    <div style="display:flex; justify-content:space-between; margin-bottom:3px;"><span>Bedelka Guud (Total):</span> ${student.total}</div>
+                    <div style="display:flex; justify-content:space-between; margin-bottom:3px;"><span>WADARTA GUUD (Total):</span> ${student.total}</div>
                     <div style="display:flex; justify-content:space-between; margin-bottom:3px;"><span>Celcelis (Avg):</span> ${student.avg}%</div>
                     <div style="display:flex; justify-content:space-between; margin-bottom:3px;"><span>Darajo (Grade):</span> ${student.grade}</div>
                     <div style="display:flex; justify-content:space-between; font-weight:bold; color:#234e52;"><span>Xaaladda (Status):</span> ${student.status}</div>
                 </div>
 
-                <div style="margin-top: 12px; font-size: 12px; text-align: center; color: #718096; font-style: italic;">Maamulaha Imtixaanka: ${student.admin}</div>
+                <div style="margin-top: 12px; font-size: 12px; text-align: center; color: #718096; font-style: italic;">Maamulaha Imtixaanaadka heer degmo: ${student.admin}</div>
             `;
         }
     } else {
