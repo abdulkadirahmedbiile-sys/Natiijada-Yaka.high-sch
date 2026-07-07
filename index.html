@@ -214,41 +214,42 @@
                 resultDiv.style.display = "block";
                 resultDiv.classList.add("error");
                 resultDiv.innerHTML = "FADLAN ISKA BIXI LACAGTA KUGU TAAGAN.";
-                              } else {
-                resultDiv.style.display = "block";
-                resultDiv.classList.add("success");
-                resultDiv.innerHTML = `
-                    <div class="result-title">BIILE EXAMINATION BOARD</div>
-                    
-                    <div class="info-section" style="background: #edf2f7; padding: 10px; border-radius: 6px; margin-bottom: 15px;">
-                        <div class="result-item" style="display:flex; justify-content:space-between; margin-bottom:5px;"><span>Magaca:</span> ${student.name}</div>
-                        <div class="result-item" style="display:flex; justify-content:space-between; margin-bottom:5px;"><span>Roll No:</span> ${idInput}</div>
-                        <div class="result-item" style="display:flex; justify-content:space-between; margin-bottom:5px;"><span>Iskuulka:</span> ${student.school}</div>
-                    </div>
+                                     } else {
+            resultDiv.style.display = "block";
+            resultDiv.classList.add("success");
+            resultDiv.innerHTML = `
+                <div class="result-title">BIILE EXAMINATION BOARD</div>
+                
+                <div class="info-section" style="background: #edf2f7; padding: 10px; border-radius: 6px; margin-bottom: 15px;">
+                    <div class="result-item" style="display:flex; justify-content:space-between; margin-bottom:5px;"><span>Magaca:</span> ${student.name}</div>
+                    <div class="result-item" style="display:flex; justify-content:space-between; margin-bottom:5px;"><span>Roll No:</span> ${idInput}</div>
+                    <div class="result-item" style="display:flex; justify-content:space-between; margin-bottom:5px;"><span>Iskuulka:</span> ${student.school || 'YAKA HIGH SCHOOL'}</div>
+                </div>
 
-                    <div class="subjects-title" style="font-weight:bold; color:#1a365d; margin-bottom:8px;">NATIIJADA MAADOOYINKA:</div>
-                    <div class="subjects-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; background: #fff; padding: 10px; border: 1px solid #e2e8f0; border-radius: 6px;">
-                        <div><span>Islam:</span> ${student.islam}</div>
-                        <div><span>Arabi:</span> ${student.arabi}</div>
-                        <div><span>Phy:</span> ${student.phy}</div>
-                        <div><span>Math:</span> ${student.math}</div>
-                        <div><span>Som:</span> ${student.som}</div>
-                        <div><span>Bio:</span> ${student.bio}</div>
-                        <div><span>Chem:</span> ${student.chem}</div>
-                        <div><span>Ict:</span> ${student.ict}</div>
-                        <div><span>Eng:</span> ${student.eng}</div>
-                        <div><span>Geo:</span> ${student.geo}</div>
-                        <div><span>His:</span> ${student.his}</div>
-                    </div>
+                <div class="subjects-title" style="font-weight:bold; color:#1a365d; margin-bottom:8px;">NATIIJADA MAADOOYINKA:</div>
+                <div class="subjects-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; background: #fff; padding: 10px; border: 1px solid #e2e8f0; border-radius: 6px;">
+                    <div style="display:flex; justify-content:space-between;"><span>Islam:</span> <span>${student.islam || 0}</span></div>
+                    <div style="display:flex; justify-content:space-between;"><span>Arabi:</span> <span>${student.arabi || 0}</span></div>
+                    <div style="display:flex; justify-content:space-between;"><span>Phy:</span> <span>${student.phy || 0}</span></div>
+                    <div style="display:flex; justify-content:space-between;"><span>Math:</span> <span>${student.math || 0}</span></div>
+                    <div style="display:flex; justify-content:space-between;"><span>Som:</span> <span>${student.som || 0}</span></div>
+                    <div style="display:flex; justify-content:space-between;"><span>Bio:</span> <span>${student.bio || 0}</span></div>
+                    <div style="display:flex; justify-content:space-between;"><span>Chem:</span> <span>${student.chem || 0}</span></div>
+                    <div style="display:flex; justify-content:space-between;"><span>Ict:</span> <span>${student.ict || 0}</span></div>
+                    <div style="display:flex; justify-content:space-between;"><span>Eng:</span> <span>${student.eng || 0}</span></div>
+                    <div style="display:flex; justify-content:space-between;"><span>Geo:</span> <span>${student.geo || 0}</span></div>
+                    <div style="display:flex; justify-content:space-between;"><span>His:</span> <span>${student.his || 0}</span></div>
+                </div>
 
-                    <div class="summary-section" style="margin-top: 15px; background: #e6fffa; padding: 10px; border-radius: 6px;">
-                        <div style="display:flex; justify-content:space-between;"><span>Bedelka Guud (Total):</span> ${student.total}</div>
-                        <div style="display:flex; justify-content:space-between;"><span>Celcelis (Avg):</span> ${student.avg}%</div>
-                        <div style="display:flex; justify-content:space-between;"><span>Darajo (Grade):</span> ${student.grade}</div>
-                        <div style="display:flex; justify-content:space-between; font-weight:bold; color:#234e52;"><span>Xaaladda (Status):</span> ${student.status}</div>
-                    </div>
+                <div class="summary-section" style="margin-top: 15px; background: #e6fffa; padding: 10px; border-radius: 6px;">
+                    <div style="display:flex; justify-content:space-between; margin-bottom:3px;"><span>Bedelka Guud (Total):</span> ${student.total}</div>
+                    <div style="display:flex; justify-content:space-between; margin-bottom:3px;"><span>Celcelis (Avg):</span> ${student.avg}%</div>
+                    <div style="display:flex; justify-content:space-between; margin-bottom:3px;"><span>Darajo (Grade):</span> ${student.grade}</div>
+                    <div style="display:flex; justify-content:space-between; font-weight:bold; color:#234e52;"><span>Xaaladda (Status):</span> ${student.status}</div>
+                </div>
 
-                    <div class="admin-box" style="margin-top: 12px; font-size: 12px; text-align: center; color: #718096; font-style: italic;">Maamulaha Imtixaanka: ${student.admin}</div>
-                `;
-            }
+                <div class="admin-box" style="margin-top: 12px; font-size: 12px; text-align: center; color: #718096; font-style: italic;">Maamulaha Imtixaanka: ${student.admin || 'ENG.AHMED BIILE'}</div>
+            `;
+        }
+
 
