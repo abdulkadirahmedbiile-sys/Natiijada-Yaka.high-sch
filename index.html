@@ -149,10 +149,12 @@
 <script>
     // Xogta rasmiga ah ee 36-ka Arday ee sawirka ku jirtay
     // Shanta u horaysa waxaa loo asteeyey "hasDebt: true" si fariinta loo tuso
-    const studentsData = {
-        "YK26001000": { name: "AYAAN CABDI XAMED", total: 1059, avg: "96.27", grade: "A+", status: "PASS", hasDebt: true },
-        "YK26001030": { name: "FADUMO XIISRI MAXAMUD", total: 1053, avg: "95.73", grade: "A+", status: "PASS", hasDebt: true },
-        "YK26001002": { name: "AMINO CUMAR C/LAAHI", total: 949, avg: "86.27", grade: "A", status: "PASS", hasDebt: true },
+       const studentsData = {
+        "YK26001000": { name: "AYAAN CABDI XAMED", school: "YAKA HIGH SCHOOL", class: "FORM3", islam: 100, arabi: 100, phy: 92, math: 81, som: 100, bio: 95, chem: 96, ict: 97, eng: 98, geo: 100, his: 100, total: 1059, avg: "96.27", grade: "A+", status: "PASS", admin: "ENG.AHMED BIILE", hasDebt: true },
+        "YK26001030": { name: "FADUMO XIISRI MAXAMUD", school: "YAKA HIGH SCHOOL", class: "FORM1", islam: 100, arabi: 96, phy: 100, math: 94, som: 96, bio: 90, chem: 95, ict: 100, eng: 90, geo: 99, his: 93, total: 1053, avg: "95.73", grade: "A+", status: "PASS", admin: "ENG.AHMED BIILE", hasDebt: true },
+        "YK26001001": { name: "ASIYO MAXAMED BARRE", school: "YAKA HIGH SCHOOL", class: "FORM3", islam: 100, arabi: 100, phy: 86, math: 70, som: 100, bio: 70, chem: 55, ict: 80, eng: 83, geo: 93, his: 96, total: 933, avg: "84.82", grade: "B+", status: "PASS", admin: "ENG.AHMED BIILE", hasDebt: false }
+    };
+
         "YK26001031": { name: "XUBBI AXMED JAAMAC", total: 947, avg: "86.09", grade: "A", status: "PASS", hasDebt: true },
         "YK26001006": { name: "FAWSIYO C/QADIR MAXAMED", total: 944, avg: "85.82", grade: "A", status: "PASS", hasDebt: true },
         
@@ -212,27 +214,41 @@
                 resultDiv.style.display = "block";
                 resultDiv.classList.add("error");
                 resultDiv.innerHTML = "FADLAN ISKA BIXI LACAGTA KUGU TAAGAN.";
-                   } else {
-            resultDiv.style.display = "block";
-            resultDiv.classList.add("success");
-            resultDiv.innerHTML = `
-                <div class="result-title">NATIIJADA ARDAYGA</div>
-                <div class="result-item"><span>Magaca:</span> ${student.name}</div>
-                <div class="result-item"><span>Roll No:</span> ${idInput}</div>
-                <div class="result-item"><span>Bedelka Guud (Total):</span> ${student.total}</div>
-                <div class="result-item"><span>Celcelis (Avg):</span> ${student.avg}%</div>
-                <div class="result-item"><span>Darajo (Grade):</span> ${student.grade}</div>
-                <div class="result-item total-row" style="color: #234e52;"><span>Xaaladda (Status):</span> ${student.status}</div>
-            `;
-        }
-    } else {
-        resultDiv.style.display = "block";
-        resultDiv.classList.add("error");
-        resultDiv.innerHTML = "Ma jiro arday leh Roll No-gaan. Fadlan hubi.";
-    }
-}
-</script>
+                              } else {
+                resultDiv.style.display = "block";
+                resultDiv.classList.add("success");
+                resultDiv.innerHTML = `
+                    <div class="result-title">BIILE EXAMINATION BOARD</div>
+                    
+                    <div class="info-section" style="background: #edf2f7; padding: 10px; border-radius: 6px; margin-bottom: 15px;">
+                        <div class="result-item" style="display:flex; justify-content:space-between; margin-bottom:5px;"><span>Magaca:</span> ${student.name}</div>
+                        <div class="result-item" style="display:flex; justify-content:space-between; margin-bottom:5px;"><span>Roll No:</span> ${idInput}</div>
+                        <div class="result-item" style="display:flex; justify-content:space-between; margin-bottom:5px;"><span>Iskuulka:</span> ${student.school}</div>
+                    </div>
 
-</body>
-</html>
+                    <div class="subjects-title" style="font-weight:bold; color:#1a365d; margin-bottom:8px;">NATIIJADA MAADOOYINKA:</div>
+                    <div class="subjects-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; background: #fff; padding: 10px; border: 1px solid #e2e8f0; border-radius: 6px;">
+                        <div><span>Islam:</span> ${student.islam}</div>
+                        <div><span>Arabi:</span> ${student.arabi}</div>
+                        <div><span>Phy:</span> ${student.phy}</div>
+                        <div><span>Math:</span> ${student.math}</div>
+                        <div><span>Som:</span> ${student.som}</div>
+                        <div><span>Bio:</span> ${student.bio}</div>
+                        <div><span>Chem:</span> ${student.chem}</div>
+                        <div><span>Ict:</span> ${student.ict}</div>
+                        <div><span>Eng:</span> ${student.eng}</div>
+                        <div><span>Geo:</span> ${student.geo}</div>
+                        <div><span>His:</span> ${student.his}</div>
+                    </div>
+
+                    <div class="summary-section" style="margin-top: 15px; background: #e6fffa; padding: 10px; border-radius: 6px;">
+                        <div style="display:flex; justify-content:space-between;"><span>Bedelka Guud (Total):</span> ${student.total}</div>
+                        <div style="display:flex; justify-content:space-between;"><span>Celcelis (Avg):</span> ${student.avg}%</div>
+                        <div style="display:flex; justify-content:space-between;"><span>Darajo (Grade):</span> ${student.grade}</div>
+                        <div style="display:flex; justify-content:space-between; font-weight:bold; color:#234e52;"><span>Xaaladda (Status):</span> ${student.status}</div>
+                    </div>
+
+                    <div class="admin-box" style="margin-top: 12px; font-size: 12px; text-align: center; color: #718096; font-style: italic;">Maamulaha Imtixaanka: ${student.admin}</div>
+                `;
+            }
 
