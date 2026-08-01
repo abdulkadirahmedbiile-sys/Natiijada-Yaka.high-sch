@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="so">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEB Portal</title>
+    <style>
+        :root { --blue: #0056b3; --green: #28a745; --red: #dc3545; --white: #fff; }
+        * { box-sizing: border-box; font-family: sans-serif; margin: 0; padding: 0; }
+        body { background: #f0f4f8; display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        .card { background: var(--white); border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); width: 100%; max-width: 600px; padding: 30px; border-top: 6px solid var(--blue); text-align: center; }
+        .page { display: none; } .page.active { display: block; }
+        img { width: 110px; height: 110px; border-radius: 50%; margin-bottom: 15px; object-fit: cover; }
+        h1 { color: #1b3a4b; font-size: 22px; margin-bottom: 20px; }
+        input { width: 100%; padding: 12px; border: 2px solid #cbd5e1; border-radius: 8px; font-size: 16px; margin-bottom: 15px; text-align: center; }
+        .btn { width: 100%; padding: 12px; background: var(--blue); color: var(--white); border: none; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; }
+        .btn-back { background: #6c757d; margin-top: 15px; }
+        .result-header { background: linear-gradient(135deg, var(--blue), var(--green)); color: var(--white); padding: 18px; border-radius: 8px; margin-bottom: 20px; text-align: left; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; background: var(--white); }
+        th { background: var(--blue); color: var(--white); padding: 10px; border: 1px solid #dee2e6; text-align: left; }
+        td { padding: 10px; border: 1px solid #dee2e6; }
+        tr:nth-child(even) { background: #f8f9fa; }
+        .summary { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; background: #eef2f7; padding: 15px; border-radius: 8px; border-left: 5px solid var(--green); text-align: left; font-size: 15px; }
+        .chairman { background: #fff; padding: 12px; border: 1px dashed var(--blue); border-radius: 6px; text-align: center; font-weight: bold; font-size: 14px; color: #1b3a4b; margin-top: 15px; }
+        .alert { background: #f8d7da; color: var(--red); border: 2px dashed var(--red); padding: 30px; border-radius: 8px; font-weight: bold; font-size: 18px; margin-bottom: 15px; }
+        
+        /* Naqshadda Saacadda Countdown-ka */
+        .countdown-box { background: #eef2f7; padding: 25px; border-radius: 8px; border: 1px solid #cbd5e1; margin-top: 15px; }
+        .timer { font-size: 26px; font-weight: bold; color: var(--blue); margin-top: 15px; letter-spacing: 1px; }
+        .timer-msg { font-size: 15px; color: var(--red); font-weight: bold; line-height: 1.5; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <!-- BOGGA COUNTDOWN-KA -->
+    <div id="lockPage" class="page active">
+        <img src="Logo.jpeg" alt="BEB LOGO">
+        <h1>BIILE EXAMINATION BOARD (BEB)</h1>
+        <div class="countdown-box">
+            <!-- Qoraalka fariinta oo loo saxay 10:55 AM subaxnimo -->
+            <p class="timer-msg">Weli lama gaarin xilligii natiijada la arki lahaa waxaa la arki doonaa 31 Julay 2026 11:25AM subaxnimo.</p>
+            <div id="countdownTimer" class="timer"> NATIIJADU WAA DIYAAR...</div>
+        </div>
+    </div>
 
+    <!-- BOGGA 1AAD (FOOMKA RAADINTA) -->
+    <div id="p1" class="page">
+        <img src="Logo.jpeg" alt="BEB LOGO">
+        <h1>BIILE EXAMINATION BOARD (BEB)</h1>
+        <input type="text" id="roll" placeholder="Geli Roll Number-ka">
+        <button class="btn" onclick="eeg()">HEL NATIIJADA</button>
+    </div>
+    <!-- BOGGA 2AAD -->
+    <div id="p2" class="page"><div id="info"></div><div id="content"></div><button class="btn btn-back" onclick="back()">KU NOQO BOGGA HORE</button></div>
+</div>
+<script>
+    // WAQTIGA FURITAANKA RASMIGA AH: 31 July 2026 saacada 11:25:00 (Subaxnimo)
+    const openDate = new Date("July 31, 2026 11:25:00").getTime();
+
+    const timerInterval = setInterval(function() {
+        const now = new Date().getTime();
+        const timeLeft = openDate - now;
+
+        const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+        document.getElementById("countdownTimer").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+        // MARKU WAQTIGU GAARO: Si toos ah u fura foomka raadinta
+        if (timeLeft <= 0) {
+            clearInterval(timerInterval);
+            document.getElementById("lockPage").classList.remove("active");
+            document.getElementById("p1").classList.add("active");
+        }
+    }, 1000);
+
+    const db = {
+        //
+    };
+    function eeg() {
+        const val = document.getElementById("roll").value.trim().toUpperCase();
+        document.getElementById("p1").classList.remove("active")
+        document.getElementById("p2").classList.add("active");
+        const info = document.getElementById("info"), cont = document.getElementById("content");
+        info.innerHTML = ""; cont.innerHTML = "";
+
+        if (val === "" || !db[val]) {
+            cont.innerHTML = `<div class="alert">ROLL NUMBER-KU WAA KHALDANYAHAY FADLAN HUBI.</div>`;
+            return;
+        }
+        const st = db[val];
+        if (!st.p) {
+            cont.innerHTML = `<div class="alert">FADLAN ISKA BIXI LACAGTA FIIGA.</div>`;
+            return;
+        }
+
+        info.innerHTML = `<div class="result-header"><h2>Ardayga: ${st.n}</h2><p><strong>Roll Number:</strong> ${val} | <strong>Fasalka:</strong> ${st.c} | <strong>Iskuulka:</strong> ${st.s}</p></div>`;
+        let html = `<table><tr><th>Maaddo</th><th>Dhibco</th><th>Maaddo</th><th>Dhibco</th></tr>`;
+        for (let i = 0; i < st.sb.length; i += 2) {
+            let s1 = st.sb[i], s2 = st.sb[i+1] || {n:"-",s:"-"};
+            html += `<tr><td>${s1.n}</td><td>${s1.s}</td><td>${s2.n}</td><td>${s2.s}</td></tr>`;
+        }
+        let status = st.a > 40 ? "GUDBAY" : "DHACAY";
+        cont.innerHTML = html + `</table><div class="summary">
+            <div>--------------------<br><strong>Total:</strong> ${st.t}</div><div>--------------------<br><strong>Average:</strong> ${st.a}%</div>
+            <div><strong>Grade:</strong> ${st.g}</div><div><strong>Status:</strong> <span style="color:${st.a>=50?'var(--green)':'var(--red)'};font-weight:bold">${status}</span></div>
+        </div><div class="chairman">GUDOOMIYAHA GUDIGA IMTIXAANAADKA : ENG AHMED BIILE</div>`;
+    }
+
+    function back() {
+        document.getElementById("p2").classList.remove("active");
+        document.getElementById("p1").classList.add("active");
+        document.getElementById("roll").value = "";
+    }
+</script>
+</body>
+</html>
