@@ -35,27 +35,27 @@
     <!-- BOGGA COUNTDOWN-KA -->
     <div id="lockPage" class="page active">
         <img src="Logo.jpeg" alt="BEB LOGO">
-        <h1>BIILE EXAMINATION BOARD (BEB)</h1>
+        <h1>BIILE EXAMINATION BOARD (BEB) Academic year 2025-2026</h1>
         <div class="countdown-box">
-            <!-- Qoraalka fariinta oo loo saxay 10:55 AM subaxnimo -->
-            <p class="timer-msg">Weli lama gaarin xilligii natiijada la arki lahaa waxaa la arki doonaa 31 Julay 2026 11:25AM subaxnimo.</p>
-            <div id="countdownTimer" class="timer"> NATIIJADU WAA DIYAAR...</div>
+            <!-- Qoraalka fariinta oo loo saxay 20:30 pm -->
+            <p class="timer-msg">waa diyaar natiijadu  8 August 2026 20:30pm .</p>
+            <div id="countdownTimer" class="timer"> Raadin...</div>
         </div>
     </div>
 
     <!-- BOGGA 1AAD (FOOMKA RAADINTA) -->
     <div id="p1" class="page">
-        <img src="logo.jpeg" alt="BEB LOGO">
+        <img src="Logo.jpeg" alt="BEB LOGO">
         <h1>BIILE EXAMINATION BOARD (BEB)</h1>
         <input type="text" id="roll" placeholder="Geli Roll Number-ka">
         <button class="btn" onclick="eeg()">HEL NATIIJADA</button>
     </div>
     <!-- BOGGA 2AAD -->
-    <div id="p2" class="page"><div id="info"></div><div id="content"></div><button class="btn btn-back" onclick="back()">KU NOQO BOGGA HORE</button></div>
+    <div id="p2" class="page"><div id="info"></div><div id="content"></div><button class="btn btn-back" onclick="back()">KA NOQO </button></div>
 </div>
 <script>
-    // WAQTIGA FURITAANKA RASMIGA AH: 31 July 2026 saacada 11:25:00 (Subaxnimo)
-    const openDate = new Date("July 31, 2026 11:25:00").getTime();
+    // WAQTIGA FURITAANKA RASMIGA AH: 8 August 2026  saacada 20:30:00 (Subaxnimo)
+    const openDate = new Date("8 August 2026  20:30:00").getTime();
 
     const timerInterval = setInterval(function() {
         const now = new Date().getTime();
@@ -76,18 +76,46 @@
         }
     }, 1000);
 
-    const db = {    // Nuqul (Copy) garee qaybtaan hoose si aad ugu baddasho koodhkaaga
-    "YK26001000": { name: "AYAAN CABDI AXMED", school: "YAKA HIGH SCHOOL", class: "FORM3", pay: false, total: 1059, avg: 96.3, grade: "A+", sb: [{n:"ISLAMIC",s:100},{n:"ARABIC",s:100},{n:"PHY",s:92},{n:"MATH",s:81},{n:"SOM",s:100},{n:"BIO",s:95},{n:"CHEM",s:100},{n:"ICT",s:96},{n:"ENG",s:97},{n:"GEO",s:98},{n:"HIS",s:100}] },
-    "YK26001030": { name: "FADUMO XISRSI MAXAMUD", school: "YAKA HIGH SCHOOL", class: "FORM1", pay: false, total: 1053, avg: 95.7, grade: "A+", sb: [{n:"ISLAMIC",s:100},{n:"ARABIC",s:96},{n:"PHY",s:100},{n:"MATH",s:94},{n:"SOM",s:96},{n:"BIO",s:90},{n:"CHEM",s:95},{n:"ICT",s:100},{n:"ENG",s:90},{n:"GEO",s:99},{n:"HIS",s:93}] },
-    "YK26001002": { name: "AMINO CUMAR C/LAHI", school: "YAKA HIGH SCHOOL", class: "FORM3", pay: false, total: 949, avg: 86.3, grade: "A-", sb: [{n:"ISLAMIC",s:92},{n:"ARABIC",s:96},{n:"PHY",s:68},{n:"MATH",s:60},{n:"SOM",s:100},{n:"BIO",s:70},{n:"CHEM",s:90},{n:"ICT",s:93},{n:"ENG",s:95},{n:"GEO",s:92},{n:"HIS",s:93}] },
-    "YK26001031": { name: "XUBBI AXMED JAAMAC", school: "YAKA HIGH SCHOOL", class: "FORM1", pay: false, total: 947, avg: 86.1, grade: "A-", sb: [{n:"ISLAMIC",s:95},{n:"ARABIC",s:90},{n:"PHY",s:89},{n:"MATH",s:70},{n:"SOM",s:88},{n:"BIO",s:80},{n:"CHEM",s:70},{n:"ICT",s:96},{n:"ENG",s:86},{n:"GEO",s:93},{n:"HIS",s:90}] },
-    "YK26001006": { name: "FAWSIYO C/QADIR MAXAMED", school: "YAKA HIGH SCHOOL", class: "FORM3", pay: false, total: 944, avg: 85.8, grade: "A-", sb: [{n:"ISLAMIC",s:89},{n:"ARABIC",s:100},{n:"PHY",s:66},{n:"MATH",s:56},{n:"SOM",s:88},{n:"BIO",s:81},{n:"CHEM",s:83},{n:"ICT",s:94},{n:"ENG",s:93},{n:"GEO",s:98},{n:"HIS",s:96}] },
-    "YK26001003": { name: "DEEQO C/RASHIID MAXAMED", school: "YAKA HIGH SCHOOL", class: "FORM3", pay: true, total: 942, avg: 85.6, grade: "A-", sb: [{n:"ISLAMIC",s:89},{n:"ARABIC",s:100},{n:"PHY",s:68},{n:"MATH",s:60},{n:"SOM",s:100},{n:"BIO",s:71},{n:"CHEM",s:75},{n:"ICT",s:100},{n:"ENG",s:93},{n:"GEO",s:90},{n:"HIS",s:96}] },
-    "YK26001020": { name: "C/SHAKUR C/KHALIF MAXU'D", school: "YAKA HIGH SCHOOL", class: "FORM1", pay: true, total: 938, avg: 85.3, grade: "A-", sb: [{n:"ISLAMIC",s:91},{n:"ARABIC",s:92},{n:"PHY",s:78},{n:"MATH",s:60},{n:"SOM",s:86},{n:"BIO",s:72},{n:"CHEM",s:87},{n:"ICT",s:100},{n:"ENG",s:95},{n:"GEO",s:97},{n:"HIS",s:80}] },
-    "YK26001001": { name: "ASIYO MAXAMED BARRE", school: "YAKA HIGH SCHOOL", class: "FORM3", pay: true, total: 933, avg: 84.8, grade: "B+", sb: [{n:"ISLAMIC",s:100},{n:"ARABIC",s:100},{n:"PHY",s:86},{n:"MATH",s:70},{n:"SOM",s:100},{n:"BIO",s:70},{n:"CHEM",s:55},{n:"ICT",s:80},{n:"ENG",s:83},{n:"GEO",s:93},{n:"HIS",s:96}] },
-    "YK26001019": { name: "MAXAMED C/QANI CALI", school: "YAKA HIGH SCHOOL", class: "FORM1", pay: true, total: 878, avg: 79.8, grade: "B", sb: [{n:"ISLAMIC",s:91},{n:"ARABIC",s:92},{n:"PHY",s:66},{n:"MATH",s:50},{n:"SOM",s:92},{n:"BIO",s:64},{n:"CHEM",s:74},{n:"ICT",s:100},{n:"ENG",s:95},{n:"GEO",s:80},{n:"HIS",s:74}] },
-    "YK26001004": { name: "ASMAA SICIID MAXAMED", school: "YAKA HIGH SCHOOL", class: "FORM3", pay: true, total: 868, avg: 78.9, grade: "B", sb: [{n:"ISLAMIC",s:51},{n:"ARABIC",s:91},{n:"PHY",s:65},{n:"MATH",s:60},{n:"SOM",s:100},{n:"BIO",s:54},{n:"CHEM",s:70},{n:"ICT",s:100},{n:"ENG",s:93},{n:"GEO",s:88},{n:"HIS",s:96}] },
-    "YK26001005": { name: "C/MALIK CISMAN C/LAHI", school: "YAKA HIGH SCHOOL", class: "FORM3", pay: true, total: 864, avg: 78.6, grade: "B", sb: [{n:"ISLAMIC",s:100},{n:"ARABIC",s:100},{n:"PHY",s:61},{n:"MATH",s:51},{n:"SOM",s:96},{n:"BIO",s:76},{n:"CHEM",s:60},{n:"ICT",s:80},{n:"ENG",s:75},{n:"GEO",s:70},{n:"HIS",s:95}] }
+        const db = {
+        // FORM 3
+        "YK26001000": { n: "AYAAN CABDI AXMED", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 1059, a: 96.3, g: "A+", sb: [{n:"ISLAMIC",s:100},{n:"ARABIC",s:100},{n:"PHY",s:92},{n:"MATH",s:81},{n:"SOM",s:100},{n:"BIO",s:95},{n:"CHEM",s:100},{n:"ICT",s:96},{n:"ENG",s:97},{n:"GECH",s:98}] },
+        "YK26001002": { n: "AMINO CUMAR C/LAHI", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 949, a: 86.3, g: "A-", sb: [{n:"ISLAMIC",s:92},{n:"ARABIC",s:96},{n:"PHY",s:68},{n:"MATH",s:60},{n:"SOM",s:100},{n:"BIO",s:70},{n:"CHEM",s:90},{n:"ICT",s:93},{n:"ENG",s:95},{n:"GECH",s:92}] },
+        "YK26001006": { n: "FAWSIYO C/QADIR MAXAMED", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 944, a: 85.8, g: "A-", sb: [{n:"ISLAMIC",s:89},{n:"ARABIC",s:100},{n:"PHY",s:66},{n:"MATH",s:56},{n:"SOM",s:88},{n:"BIO",s:81},{n:"CHEM",s:83},{n:"ICT",s:94},{n:"ENG",s:93},{n:"GECH",s:98}] },
+        "YK26001003": { n: "DEEQO C/RASHIID MAXAMED", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 942, a: 85.6, g: "A-", sb: [{n:"ISLAMIC",s:89},{n:"ARABIC",s:100},{n:"PHY",s:68},{n:"MATH",s:60},{n:"SOM",s:100},{n:"BIO",s:71},{n:"CHEM",s:75},{n:"ICT",s:100},{n:"ENG",s:93},{n:"GECH",s:96}] },
+        "YK26001001": { n: "ASIYO MAXAMED BARRE", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 933, a: 84.8, g: "B+", sb: [{n:"ISLAMIC",s:100},{n:"ARABIC",s:100},{n:"PHY",s:86},{n:"MATH",s:70},{n:"SOM",s:100},{n:"BIO",s:70},{n:"CHEM",s:55},{n:"ICT",s:80},{n:"ENG",s:83},{n:"GECH",s:93}] },
+        "YK26001004": { n: "ASMAA SICIID MAXAMED", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 868, a: 78.9, g: "B", sb: [{n:"ISLAMIC",s:51},{n:"ARABIC",s:91},{n:"PHY",s:65},{n:"MATH",s:60},{n:"SOM",s:100},{n:"BIO",s:54},{n:"CHEM",s:70},{n:"ICT",s:100},{n:"ENG",s:93},{n:"GECH",s:88}] },
+        "YK26001005": { n: "C/MALIK CISMAN C/LAHI", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 864, a: 78.5, g: "B", sb: [{n:"ISLAMIC",s:100},{n:"ARABIC",s:100},{n:"PHY",s:61},{n:"MATH",s:51},{n:"SOM",s:96},{n:"BIO",s:76},{n:"CHEM",s:60},{n:"ICT",s:80},{n:"ENG",s:75},{n:"GECH",s:90}] },
+        "YK26001009": { n: "ASMAA YAASIIN AXMED", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 842, a: 76.5, g: "B", sb: [{n:"ISLAMIC",s:62},{n:"ARABIC",s:50},{n:"PHY",s:60},{n:"MATH",s:50},{n:"SOM",s:91},{n:"BIO",s:75},{n:"CHEM",s:88},{n:"ICT",s:94},{n:"ENG",s:83},{n:"GECH",s:92}] },
+        "YK26001011": { n: "MOHAMUD ABSHIR SAID", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 818, a: 74.4, g: "B-", sb: [{n:"ISLAMIC",s:79},{n:"ARABIC",s:86},{n:"PHY",s:51},{n:"MATH",s:59},{n:"SOM",s:100},{n:"BIO",s:58},{n:"CHEM",s:55},{n:"ICT",s:80},{n:"ENG",s:83},{n:"GECH",s:88}] },
+        "YK26001007": { n: "XAFSO XASAN CISMAAN", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 807, a: 73.4, g: "B-", sb: [{n:"ISLAMIC",s:92},{n:"ARABIC",s:61},{n:"PHY",s:64},{n:"MATH",s:52},{n:"SOM",s:91},{n:"BIO",s:51},{n:"CHEM",s:66},{n:"ICT",s:80},{n:"ENG",s:85},{n:"GECH",s:74}] },
+        "YK26001010": { n: "MUXIIDIIN AXMED MAXAMED", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 799, a: 72.6, g: "B-", sb: [{n:"ISLAMIC",s:69},{n:"ARABIC",s:52},{n:"PHY",s:72},{n:"MATH",s:60},{n:"SOM",s:88},{n:"BIO",s:67},{n:"CHEM",s:62},{n:"ICT",s:93},{n:"ENG",s:75},{n:"GECH",s:73}] },
+        "YK26001008": { n: "MAXAMUD CISMAN CAJAB", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 768, a: 69.8, g: "C+", sb: [{n:"ISLAMIC",s:80},{n:"ARABIC",s:50},{n:"PHY",s:50},{n:"MATH",s:40},{n:"SOM",s:76},{n:"BIO",s:65},{n:"CHEM",s:72},{n:"ICT",s:95},{n:"ENG",s:65},{n:"GECH",s:78}] },
+        // FORM 2
+        "YK26001017": { n: "AYUUB C/CASIIS XASAN", c: "FORM 2", s: "YAKA SCHOOL", p: true, t: 824, a: 74.9, g: "B-", sb: [{n:"ISLAMIC",s:87},{n:"ARABIC",s:96},{n:"PHY",s:45},{n:"MATH",s:56},{n:"SOM",s:77},{n:"BIO",s:46},{n:"CHEM",s:75},{n:"ICT",s:97},{n:"ENG",s:93},{n:"GECH",s:92}] },
+        "YK26001018": { n: "FADUMO CISMAN C/LAHI", c: "FORM 2", s: "YAKA SCHOOL", p: true, t: 798, a: 72.5, g: "B-", sb: [{n:"ISLAMIC",s:91},{n:"ARABIC",s:89},{n:"PHY",s:50},{n:"MATH",s:65},{n:"SOM",s:98},{n:"BIO",s:72},{n:"CHEM",s:50},{n:"ICT",s:70},{n:"ENG",s:73},{n:"GECH",s:70}] },
+        "YK26001014": { n: "MUKHTAR AXMED MAXAMED", c: "FORM 2", s: "YAKA SCHOOL", p: true, t: 792, a: 72, g: "B-", sb: [{n:"ISLAMIC",s:95},{n:"ARABIC",s:91},{n:"PHY",s:53},{n:"MATH",s:52},{n:"SOM",s:67},{n:"BIO",s:52},{n:"CHEM",s:40},{n:"ICT",s:77},{n:"ENG",s:93},{n:"GECH",s:95}] },
+        "YK26001013": { n: "MAXAMED C/MALIK KHALIIF", c: "FORM 2", s: "YAKA SCHOOL", p: true, t: 786, a: 71.5, g: "B-", sb: [{n:"ISLAMIC",s:92},{n:"ARABIC",s:88},{n:"PHY",s:45},{n:"MATH",s:45},{n:"SOM",s:79},{n:"BIO",s:65},{n:"CHEM",s:50},{n:"ICT",s:70},{n:"ENG",s:93},{n:"GECH",s:71}] },
+        "YK26001012": { n: "MAXAMED MAXAMUD CABDI", c: "FORM 2", s: "YAKA SCHOOL", p: true, t: 752, a: 68.4, g: "C+", sb: [{n:"ISLAMIC",s:67},{n:"ARABIC",s:60},{n:"PHY",s:52},{n:"MATH",s:52},{n:"SOM",s:89},{n:"BIO",s:71},{n:"CHEM",s:66},{n:"ICT",s:73},{n:"ENG",s:89},{n:"GECH",s:70}] },
+        "YK26001015": { n: "C/LAAHI MAXAMED C/LAHI", c: "FORM 2", s: "YAKA SCHOOL", p: false, t: 713, a: 64.8, g: "C", sb: [{n:"ISLAMIC",s:50},{n:"ARABIC",s:79},{n:"PHY",s:50},{n:"MATH",s:46},{n:"SOM",s:81},{n:"BIO",s:71},{n:"CHEM",s:36},{n:"ICT",s:70},{n:"ENG",s:97},{n:"GECH",s:67}] },
+        "YK26001016": { n: "AXMED C/RASHIID XASAN", c: "FORM 2", s: "YAKA SCHOOL", p: true, t: 640, a: 58.2, g: "C-", sb: [{n:"ISLAMIC",s:100},{n:"ARABIC",s:87},{n:"PHY",s:47},{n:"MATH",s:50},{n:"SOM",s:0},{n:"BIO",s:45},{n:"CHEM",s:45},{n:"ICT",s:73},{n:"ENG",s:95},{n:"GECH",s:73}] },
+        // FORM 1
+        "YK26001030": { n: "FADUMO XISRSI MAXAMUD", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 1053, a: 95.7, g: "A+", sb: [{n:"ISLAMIC",s:100},{n:"ARABIC",s:96},{n:"PHY",s:100},{n:"MATH",s:94},{n:"SOM",s:96},{n:"BIO",s:90},{n:"CHEM",s:95},{n:"ICT",s:100},{n:"ENG",s:90},{n:"GECH",s:99}] },
+        "YK26001031": { n: "XUBBI AXMED JAAMAC", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 947, a: 86.1, g: "A-", sb: [{n:"ISLAMIC",s:95},{n:"ARABIC",s:90},{n:"PHY",s:89},{n:"MATH",s:70},{n:"SOM",s:88},{n:"BIO",s:80},{n:"CHEM",s:70},{n:"ICT",s:96},{n:"ENG",s:86},{n:"GECH",s:93}] },
+        "YK26001020": { n: "C/SHAKUR C/KHALIF MAXU'D", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 938, a: 85.3, g: "A-", sb: [{n:"ISLAMIC",s:91},{n:"ARABIC",s:92},{n:"PHY",s:78},{n:"MATH",s:60},{n:"SOM",s:86},{n:"BIO",s:72},{n:"CHEM",s:87},{n:"ICT",s:100},{n:"ENG",s:95},{n:"GECH",s:97}] },
+        "YK26001019": { n: "MAXAMED C/QANI CALI", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 878, a: 79.8, g: "B", sb: [{n:"ISLAMIC",s:91},{n:"ARABIC",s:92},{n:"PHY",s:66},{n:"MATH",s:50},{n:"SOM",s:92},{n:"BIO",s:64},{n:"CHEM",s:74},{n:"ICT",s:100},{n:"ENG",s:95},{n:"GECH",s:80}] },
+        "YK26001029": { n: "MAXAMED XUSEEN C/QADIR", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 801, a: 72.8, g: "B-", sb: [{n:"ISLAMIC",s:69},{n:"ARABIC",s:68},{n:"PHY",s:76},{n:"MATH",s:62},{n:"SOM",s:86},{n:"BIO",s:61},{n:"CHEM",s:31},{n:"ICT",s:90},{n:"ENG",s:89},{n:"GECH",s:92}] },
+        "YK26001028": { n: "C/WAASAC C/RASAQ AXMED", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 783, a: 71.2, g: "B-", sb: [{n:"ISLAMIC",s:61},{n:"ARABIC",s:90},{n:"PHY",s:56},{n:"MATH",s:66},{n:"SOM",s:82},{n:"BIO",s:57},{n:"CHEM",s:25},{n:"ICT",s:92},{n:"ENG",s:94},{n:"GECH",s:90}] },
+        "YK26001033": { n: "SAKARIYE JAAMAC CABDI", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 772, a: 70.2, g: "B-", sb: [{n:"ISLAMIC",s:70},{n:"ARABIC",s:86},{n:"PHY",s:52},{n:"MATH",s:50},{n:"SOM",s:78},{n:"BIO",s:54},{n:"CHEM",s:20},{n:"ICT",s:96},{n:"ENG",s:88},{n:"GECH",s:84}] },
+        "YK26001027": { n: "SAKARIYE MAXAMED BARRE", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 764, a: 69.5, g: "C+", sb: [{n:"ISLAMIC",s:51},{n:"ARABIC",s:81},{n:"PHY",s:67},{n:"MATH",s:52},{n:"SOM",s:88},{n:"BIO",s:60},{n:"CHEM",s:35},{n:"ICT",s:78},{n:"ENG",s:87},{n:"GECH",s:89}] },
+        "YK26001023": { n: "MAXAMED C/RISAAQ KHALIIF", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 763, a: 69.4, g: "C+", sb: [{n:"ISLAMIC",s:59},{n:"ARABIC",s:77},{n:"PHY",s:56},{n:"MATH",s:56},{n:"SOM",s:64},{n:"BIO",s:66},{n:"CHEM",s:30},{n:"ICT",s:92},{n:"ENG",s:95},{n:"GECH",s:88}] },
+        "YK26001025": { n: "MAXAMUD MAXE'D CUMAR", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 745, a: 67.7, g: "C+", sb: [{n:"ISLAMIC",s:50},{n:"ARABIC",s:94},{n:"PHY",s:49},{n:"MATH",s:62},{n:"SOM",s:90},{n:"BIO",s:53},{n:"CHEM",s:40},{n:"ICT",s:84},{n:"ENG",s:89},{n:"GECH",s:61}] },
+        "YK26001022": { n: "USAME SICIID CABDI", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 707, a: 64.3, g: "C", sb: [{n:"ISLAMIC",s:50},{n:"ARABIC",s:94},{n:"PHY",s:70},{n:"MATH",s:50},{n:"SOM",s:78},{n:"BIO",s:53},{n:"CHEM",s:10},{n:"ICT",s:88},{n:"ENG",s:83},{n:"GECH",s:65}] },
+        "YK26001034": { n: "C/LAAHI ABSHIR SICIID", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 681, a: 61.9, g: "C", sb: [{n:"ISLAMIC",s:50},{n:"ARABIC",s:50},{n:"PHY",s:55},{n:"MATH",s:50},{n:"SOM",s:92},{n:"BIO",s:54},{n:"CHEM",s:26},{n:"ICT",s:88},{n:"ENG",s:86},{n:"GECH",s:62}] },
+        "YK26001024": { n: "AXMED MAXAMED AXMED", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 675, a: 61.4, g: "C", sb: [{n:"ISLAMIC",s:50},{n:"ARABIC",s:76},{n:"PHY",s:51},{n:"MATH",s:50},{n:"SOM",s:72},{n:"BIO",s:55},{n:"CHEM",s:20},{n:"ICT",s:80},{n:"ENG",s:84},{n:"GECH",s:65}] },
+        "YK26001032": { n: "AXMED MAXAMED BARRE", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 670, a: 60.9, g: "C", sb: [{n:"ISLAMIC",s:50},{n:"ARABIC",s:50},{n:"PHY",s:45},{n:"MATH",s:54},{n:"SOM",s:80},{n:"BIO",s:58},{n:"CHEM",s:15},{n:"ICT",s:84},{n:"ENG",s:88},{n:"GECH",s:73}] },
+        "YK26001035": { n: "CUMAR MAXU'D XIRSI", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 663, a: 60.3, g: "C", sb: [{n:"ISLAMIC",s:20},{n:"ARABIC",s:50},{n:"PHY",s:50},{n:"MATH",s:50},{n:"SOM",s:90},{n:"BIO",s:64},{n:"CHEM",s:25},{n:"ICT",s:84},{n:"ENG",s:78},{n:"GECH",s:73}] },
+"YK26001021": { n: "C/LADIIF C/LAHI MAXAMED", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 662, a: 60.2, g: "C", sb: [{n:"ISLAMIC",s:28},{n:"ARABIC",s:75},{n:"PHY",s:44},{n:"MATH",s:47},{n:"SOM",s:84},{n:"BIO",s:47},{n:"CHEM",s:22},{n:"ICT",s:88},{n:"ENG",s:75},{n:"GECH",s:70}] },
+        "YK26001026": { n: "NUUR CISMAN MAXAMED", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 660, a: 60, g: "C", sb: [{n:"ISLAMIC",s:50},{n:"ARABIC",s:50},{n:"PHY",s:55},{n:"MATH",s:60},{n:"SOM",s:96},{n:"BIO",s:44},{n:"CHEM",s:20},{n:"ICT",s:62},{n:"ENG",s:88},{n:"GECH",s:75}] }
     };
     function eeg() {
         const val = document.getElementById("roll").value.trim().toUpperCase();
