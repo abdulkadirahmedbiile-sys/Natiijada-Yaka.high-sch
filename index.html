@@ -20,16 +20,16 @@
         th { background: var(--g); color: var(--w); padding: 10px; text-align: left; font-size: 14px; } td { padding: 10px; border-bottom: 1px solid #e2e8f0; font-size: 14px; color: #2d3748; }
         tr:nth-child(even) { background: #fdfaf2; } .summary { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; background: #fdfaf2; padding: 15px; border-radius: 8px; border-left: 5px solid var(--gld); text-align: left; font-size: 14px; }
         .chairman { background: var(--w); padding: 10px; border: 1px dashed var(--gld); border-radius: 6px; text-align: center; font-weight: bold; font-size: 13px; color: var(--g); margin-top: 15px; }
-        .alert { background: #fff5f5; color: #c53030; border: 2px dashed #feb2b2; padding: 20px; border-radius: 8px; font-weight: bold; font-size: 16px; margin-bottom: 15px; }
+        .alert { background: #fff5f5; color: #c53030; border: 3px dashed #feb2b2; padding: 20px; border-radius: 8px; font-weight: bold; font-size: 16px; margin-bottom: 15px; }
     </style>
 </head>
 <body>
     <div class="card">
         <div id="lockPage" class="page active">
             <img src="logo.jpeg" alt="BEB LOGO">
-            <h1>BIILE EXAMINATION BOARD (BEB)<br><span style="font-size:14px; color:var(--gld)">Academic year 2025-2026</span></h1>
+            <h1>BIILE EXAMINATION BOARD (BEB)<br><span style="font-size:15px; color:var(--gld)">Academic year 2025-2026</span></h1>
             <div class="countdown-box">
-                <p class="timer-msg">Natiijadu waxay diyaar tahay talaadada 3 september 2026 12:50pm.</p>
+                <p class="timer-msg">Natiijadu waxay diyaar tahay talaadada 3 september 2026 13:15pm.</p>
                 <div id="countdownTimer" class="timer-display">
                     <div class="t-block"><span class="t-num" id="d">00</span><span class="t-lbl">Dalm</span></div>
                     <div class="t-block"><span class="t-num" id="h">00</span><span class="t-lbl">Saac</span></div>
@@ -50,15 +50,15 @@
         const db = {
             "YK26001000": { n: "AYAAN CABDI AXMED", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 1059, a: 96.3, g: "A+", sb: [{n:"ISLAM",s:100},{n:"ARABI",s:100},{n:"PHY",s:92},{n:"MATH",s:81},{n:"SOM",s:100},{n:"BIO",s:95},{n:"CHEM",s:100},{n:"ICT",s:96},{n:"ENG",s:97},{n:"GEO",s:98},{n:"HIS",s:100}] },
             "YK26001002": { n: "AMINO CUMAR C/LAHI", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 949, a: 86.3, g: "A-", sb: [{n:"ISLAM",s:92},{n:"ARABI",s:96},{n:"PHY",s:68},{n:"MATH",s:60},{n:"SOM",s:100},{n:"BIO",s:70},{n:"CHEM",s:90},{n:"ICT",s:93},{n:"ENG",s:95},{n:"GEO",s:92},{n:"HIS",s:93}] },
-            "YK26001006": { n: "FAWSIYO C/QADIR MAXAMED", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 944, a: 85.8, g: "A-", sb: [{n:"ISLAM",s:89},{n:"ARABI",s:100},{n:"PHY",s:66},{n:"MATH",s:56},{n:"SOM",s:88},{n:"BIO",s:81},{n:"CHEM",s:83},{n:"ICT",s:94},{n:"ENG",s:93},{n:"GEO",s:98},{n:"HIS",s:96}] }
+            "YK26001006": { n: "FAWSIYO C/QADIR MAXAMED", c: "FORM 3", s: "YAKA SCHOOL", p: false, t: 944, a: 85.8, g: "A-", sb: [{n:"ISLAM",s:89},{n:"ARABI",s:100},{n:"PHY",s:66},{n:"MATH",s:56},{n:"SOM",s:88},{n:"BIO",s:81},{n:"CHEM",s:83},{n:"ICT",s:94},{n:"ENG",s:93},{n:"GEO",s:98},{n:"HIS",s:96}] }
         };
-        const openDate = new Date("september 3, 2026 12:55:00").getTime();
+        const openDate = new Date("september 3, 2026 13:15:00").getTime();
         const timerInterval = setInterval(function() {
             const timeLeft = openDate - new Date().getTime();
             const d = Math.floor(timeLeft / 86400000), h = Math.floor((timeLeft % 86400000) / 3600000), m = Math.floor((timeLeft % 3600000) / 60000), s = Math.floor((timeLeft % 60000) / 1000);
             if(document.getElementById("d")) {
                 document.getElementById("d").innerText = d < 10 ? "0"+d : d; document.getElementById("h").innerText = h < 10 ? "0"+h : h;
-                document.getElementById("m").innerText = m < 10 ? "0"+m : m; document.getElementById("s").innerText = s < 10 ? "0"+s : s;
+                document.getElementById("m").innerText = d < 10 ? "0"+d : m; document.getElementById("s").innerText = s < 10 ? "0"+s : s;
             }
             if (timeLeft <= 0) { clearInterval(timerInterval); document.getElementById("lockPage").classList.remove("active"); document.getElementById("p1").classList.add("active"); }
         }, 1000);
@@ -69,7 +69,7 @@
             else {
                 document.getElementById("info").innerHTML = `<div class="std-card"><div style="text-align:center;margin-bottom:10px;font-weight:bold;color:var(--g);border-bottom:2px solid var(--gld)">XOGTA ARDAYGA</div><div class="p-row"><span class="p-lbl">Magaca:</span><span><b>${st.n}</b></span></div><div class="p-row"><span class="p-lbl">Roll Number:</span><span>${id}</span></div><div class="p-row"><span class="p-lbl">Class:</span><span>${st.c}</span></div><div class="p-row"><span class="p-lbl">School:</span><span>${st.s}</span></div></div>`;
                 let trs = st.sb.map(s => `<tr><td>${s.n}</td><td>${s.s}</td></tr>`).join('');
-                document.getElementById("content").innerHTML = `<div class="result-header"><h3>NATIIJADA IMTIXAANKA</h3></div><table><thead><tr><th>Maado</th><th>Score</th></tr></thead><tbody>${trs}</tbody></table><div class="summary"><div><b>Total:</b> ${st.t}</div><div><b>Avg / Grade:</b> ${st.a}% (${st.g})</div></div><div class="chairman">BEB - Guddoomiye</div>`;
+                document.getElementById("content").innerHTML = `<div class="result-header"><h3>NATIIJADA IMTIXAANKA</h3></div><table><thead><tr><th>Maado</th><th>Score</th></tr></thead><tbody>${trs}</tbody></table><div class="summary"><div><b>Total:</b> ${st.t}</div><div><b>Avg & Grade:</b> ${st.a}% (${st.g})</div></div><div class="chairman"> Guddoomiyaha gudiga imtixanaadka Eng Ahmed Biile</div>`;
             }
             document.getElementById("p1").classList.remove("active"); document.getElementById("p2").classList.add("active");
         }
