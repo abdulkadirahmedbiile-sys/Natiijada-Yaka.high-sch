@@ -1,35 +1,24 @@
 <!DOCTYPE html>
 <html lang="so">
 <head>
-    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BEB Portal</title>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>BEB Portal</title>
     <style>
-        :root { --g: #1b4d3e; --gld: #dfb76c; --w: #fff; }
-        * { box-sizing: border-box; font-family: sans-serif; margin: 0; padding: 0; }
+        :root { --g: #1b4d3e; --gld: #dfb76c; --w: #fff; } * { box-sizing: border-box; font-family: sans-serif; margin: 0; padding: 0; }
         body { background: linear-gradient(135deg, #f9f6f0, #f3ece1); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
         .card { background: var(--w); border-radius: 16px; box-shadow: 0 8px 30px rgba(27,77,62,0.1); width: 100%; max-width: 550px; padding: 35px 25px; border-top: 6px solid var(--g); text-align: center; }
-        .page { display: none; } .page.active { display: block; }
-        img { width: 100px; height: 100px; border-radius: 50%; margin-bottom: 15px; object-fit: cover; border: 3px solid #fdfaf2; }
-        h1 { color: var(--g); font-size: 20px; margin-bottom: 20px; }
-        input { width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; margin-bottom: 15px; text-align: center; }
-        input:focus { outline: none; border-color: var(--gld); }
-        .btn { width: 100%; padding: 12px; background: var(--g); color: var(--w); border: none; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; }
-        .btn-back { background: #718096; margin-top: 15px; }
-        .countdown-box { background: #fdfaf2; padding: 20px; border-radius: 12px; border: 1px solid rgba(223,183,108,0.3); margin-top: 15px; }
-        .timer-msg { font-size: 14px; color: var(--g); font-weight: bold; margin-bottom: 15px; }
-        .timer-display { display: flex; justify-content: center; gap: 8px; }
+        .page { display: none; } .page.active { display: block; } img { width: 100px; height: 100px; border-radius: 50%; margin-bottom: 15px; object-fit: cover; border: 3px solid #fdfaf2; }
+        h1 { color: var(--g); font-size: 20px; margin-bottom: 20px; } input { width: 100%; padding: 12px; border: 2px solid #e2e8f0; border-radius: 8px; font-size: 16px; margin-bottom: 15px; text-align: center; }
+        input:focus { outline: none; border-color: var(--gld); } .btn { width: 100%; padding: 12px; background: var(--g); color: var(--w); border: none; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; }
+        .btn-back { background: #718096; margin-top: 15px; } .countdown-box { background: #fdfaf2; padding: 20px; border-radius: 12px; border: 1px solid rgba(223,183,108,0.3); margin-top: 15px; }
+        .timer-msg { font-size: 14px; color: var(--g); font-weight: bold; margin-bottom: 15px; } .timer-display { display: flex; justify-content: center; gap: 8px; }
         .t-block { background: var(--w); border: 1px solid rgba(27,77,62,0.15); border-bottom: 3px solid var(--g); padding: 8px; border-radius: 8px; min-width: 60px; }
-        .t-num { font-size: 20px; font-weight: bold; color: var(--g); display: block; }
-        .t-lbl { font-size: 10px; color: var(--gld); font-weight: bold; text-transform: uppercase; }
+        .t-num { font-size: 20px; font-weight: bold; color: var(--g); display: block; } .t-lbl { font-size: 10px; color: var(--gld); font-weight: bold; text-transform: uppercase; }
         .std-card { background: #fdfaf2; border-left: 5px solid var(--g); border-radius: 8px; padding: 15px; text-align: left; margin-bottom: 20px; font-size: 14px; border: 1px solid rgba(223,183,108,0.2); }
-        .p-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(0,0,0,0.04); }
-        .p-lbl { font-weight: bold; color: var(--g); }
+        .p-row { display: flex; justify-content: space-between; padding: 6px 0; border-bottom: 1px solid rgba(0,0,0,0.04); } .p-lbl { font-weight: bold; color: var(--g); }
         .result-header { background: var(--g); color: var(--w); padding: 15px; border-radius: 8px; margin-bottom: 15px; text-align: left; }
         table { width: 100%; border-collapse: collapse; margin-bottom: 15px; background: var(--w); border-radius: 8px; overflow: hidden; }
-        th { background: var(--g); color: var(--w); padding: 10px; text-align: left; font-size: 14px; }
-        td { padding: 10px; border-bottom: 1px solid #e2e8f0; font-size: 14px; color: #2d3748; }
-        tr:nth-child(even) { background: #fdfaf2; }
-        .summary { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; background: #fdfaf2; padding: 15px; border-radius: 8px; border-left: 5px solid var(--gld); text-align: left; font-size: 14px; }
+        th { background: var(--g); color: var(--w); padding: 10px; text-align: left; font-size: 14px; } td { padding: 10px; border-bottom: 1px solid #e2e8f0; font-size: 14px; color: #2d3748; }
+        tr:nth-child(even) { background: #fdfaf2; } .summary { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; background: #fdfaf2; padding: 15px; border-radius: 8px; border-left: 5px solid var(--gld); text-align: left; font-size: 14px; }
         .chairman { background: var(--w); padding: 10px; border: 1px dashed var(--gld); border-radius: 6px; text-align: center; font-weight: bold; font-size: 13px; color: var(--g); margin-top: 15px; }
         .alert { background: #fff5f5; color: #c53030; border: 2px dashed #feb2b2; padding: 20px; border-radius: 8px; font-weight: bold; font-size: 16px; margin-bottom: 15px; }
     </style>
@@ -58,6 +47,11 @@
         <div id="p2" class="page"><div id="info"></div><div id="content"></div><button class="btn btn-back" onclick="back()">KA NOQO</button></div>
     </div>
     <script>
+        const db = {
+            "YK26001000": { n: "AYAAN CABDI AXMED", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 1059, a: 96.3, g: "A+", sb: [{n:"ISLAM",s:100},{n:"ARABI",s:100},{n:"PHY",s:92},{n:"MATH",s:81},{n:"SOM",s:100},{n:"BIO",s:95},{n:"CHEM",s:100},{n:"ICT",s:96},{n:"ENG",s:97},{n:"GEO",s:98},{n:"HIS",s:100}] },
+            "YK26001002": { n: "AMINO CUMAR C/LAHI", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 949, a: 86.3, g: "A-", sb: [{n:"ISLAM",s:92},{n:"ARABI",s:96},{n:"PHY",s:68},{n:"MATH",s:60},{n:"SOM",s:100},{n:"BIO",s:70},{n:"CHEM",s:90},{n:"ICT",s:93},{n:"ENG",s:95},{n:"GEO",s:92},{n:"HIS",s:93}] },
+            "YK26001006": { n: "FAWSIYO C/QADIR MAXAMED", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 944, a: 85.8, g: "A-", sb: [{n:"ISLAM",s:89},{n:"ARABI",s:100},{n:"PHY",s:66},{n:"MATH",s:56},{n:"SOM",s:88},{n:"BIO",s:81},{n:"CHEM",s:83},{n:"ICT",s:94},{n:"ENG",s:93},{n:"GEO",s:98},{n:"HIS",s:96}] }
+        };
         const openDate = new Date("August 11, 2026 13:50:00").getTime();
         const timerInterval = setInterval(function() {
             const timeLeft = openDate - new Date().getTime();
@@ -69,118 +63,17 @@
             if (timeLeft <= 0) { clearInterval(timerInterval); document.getElementById("lockPage").classList.remove("active"); document.getElementById("p1").classList.add("active"); }
         }, 1000);
         function eeg() {
-            let roll = document.getElementById("roll").value || "BEB-2026";
-            document.getElementById("info").innerHTML = `<div class="std-card"><div style="text-align:center;margin-bottom:10px;font-weight:bold;color:var(--g);border-bottom:2px solid var(--gld)">XOGTA ARDAYGA</div><div class="p-row"><span class="p-lbl">Magaca:</span><span><b>Arday Tusaale Ah</b></span></div><div class="p-row"><span class="p-lbl">Roll Number:</span><span>${roll}</span></div></div>`;
-            document.getElementById("content").innerHTML = `<div class="result-header"><h3>NATIIJADA IMTIXAANKA</h3></div><table><thead><tr><th>Maado</th><th>Darajo</th></tr></thead><tbody><tr><td>Math</td><td>A</td></tr><tr><td>English</td><td>B</td></tr></tbody></table><div class="summary"><div><b>Wadar:</b> 180/200</div><div><b>%</b> 90%</div></div><div class="chairman">BEB - Guddoomiye</div>`;
+            let id = document.getElementById("roll").value.trim().toUpperCase();
+            let st = db[id];
+            if (!st) { document.getElementById("info").innerHTML = `<div class="alert">Roll Number-ka ma saxna!</div>`; document.getElementById("content").innerHTML = ""; } 
+            else {
+                document.getElementById("info").innerHTML = `<div class="std-card"><div style="text-align:center;margin-bottom:10px;font-weight:bold;color:var(--g);border-bottom:2px solid var(--gld)">XOGTA ARDAYGA</div><div class="p-row"><span class="p-lbl">Magaca:</span><span><b>${st.n}</b></span></div><div class="p-row"><span class="p-lbl">Roll Number:</span><span>${id}</span></div><div class="p-row"><span class="p-lbl">Class:</span><span>${st.c}</span></div><div class="p-row"><span class="p-lbl">School:</span><span>${st.s}</span></div></div>`;
+                let trs = st.sb.map(s => `<tr><td>${s.n}</td><td>${s.s}</td></tr>`).join('');
+                document.getElementById("content").innerHTML = `<div class="result-header"><h3>NATIIJADA IMTIXAANKA</h3></div><table><thead><tr><th>Maado</th><th>Score</th></tr></thead><tbody>${trs}</tbody></table><div class="summary"><div><b>Total:</b> ${st.t}</div><div><b>Avg / Grade:</b> ${st.a}% (${st.g})</div></div><div class="chairman">BEB - Guddoomiye</div>`;
+            }
             document.getElementById("p1").classList.remove("active"); document.getElementById("p2").classList.add("active");
         }
         function back() { document.getElementById("p2").classList.remove("active"); document.getElementById("p1").classList.add("active"); }
     </script>
-</body>
-</html>
-
-           const db = {
-        // ==================== FORM 3 STUDENTS ====================  
-        "YK26001000": { n: "AYAAN CABDI AXMED", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 1059, a: 96.3, g: "A+", sb: [{n:"ISLAM",s:100},{n:"ARABI",s:100},{n:"PHY",s:92},{n:"MATH",s:81},{n:"SOM",s:100},{n:"BIO",s:95},{n:"CHEM",s:100},{n:"ICT",s:96},{n:"ENG",s:97},{n:"GEO",s:98},{n:"HIS",s:100}] },
-        "YK26001002": { n: "AMINO CUMAR C/LAHI", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 949, a: 86.3, g: "A-", sb: [{n:"ISLAM",s:92},{n:"ARABI",s:96},{n:"PHY",s:68},{n:"MATH",s:60},{n:"SOM",s:100},{n:"BIO",s:70},{n:"CHEM",s:90},{n:"ICT",s:93},{n:"ENG",s:95},{n:"GEO",s:92},{n:"HIS",s:93}] },
-        "YK26001006": { n: "FAWSIYO C/QADIR MAXAMED", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 944, a: 85.8, g: "A-", sb: [{n:"ISLAM",s:89},{n:"ARABI",s:100},{n:"PHY",s:66},{n:"MATH",s:56},{n:"SOM",s:88},{n:"BIO",s:81},{n:"CHEM",s:83},{n:"ICT",s:94},{n:"ENG",s:93},{n:"GEO",s:98},{n:"HIS",s:96}] },
-        "YK26001003": { n: "DEEQO C/RASHIID MAXAMED", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 942, a: 85.6, g: "A-", sb: [{n:"ISLAM",s:89},{n:"ARABI",s:100},{n:"PHY",s:68},{n:"MATH",s:60},{n:"SOM",s:100},{n:"BIO",s:71},{n:"CHEM",s:75},{n:"ICT",s:100},{n:"ENG",s:93},{n:"GEO",s:96},{n:"HIS",s:90}] },
-        "YK26001001": { n: "ASIYO MAXAMED BARRE", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 933, a: 84.8, g: "B+", sb: [{n:"ISLAM",s:100},{n:"ARABI",s:100},{n:"PHY",s:86},{n:"MATH",s:70},{n:"SOM",s:100},{n:"BIO",s:70},{n:"CHEM",s:55},{n:"ICT",s:80},{n:"ENG",s:83},{n:"GEO",s:93},{n:"HIS",s:96}] },
-        "YK26001004": { n: "ASMAA SICIID MAXAMED", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 868, a: 78.9, g: "B", sb: [{n:"ISLAM",s:51},{n:"ARABI",s:91},{n:"PHY",s:65},{n:"MATH",s:60},{n:"SOM",s:100},{n:"BIO",s:54},{n:"CHEM",s:70},{n:"ICT",s:100},{n:"ENG",s:93},{n:"GEO",s:88},{n:"HIS",s:96}] },
-        "YK26001005": { n: "C/MALIK CISMAN C/LAHI", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 864, a: 78.5, g: "B", sb: [{n:"ISLAM",s:100},{n:"ARABI",s:100},{n:"PHY",s:61},{n:"MATH",s:51},{n:"SOM",s:96},{n:"BIO",s:76},{n:"CHEM",s:60},{n:"ICT",s:80},{n:"ENG",s:75},{n:"GEO",s:90},{n:"HIS",s:95}] },
-        "YK26001009": { n: "ASMAA YAASIIN AXMED", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 842, a: 76.5, g: "B", sb: [{n:"ISLAM",s:62},{n:"ARABI",s:50},{n:"PHY",s:60},{n:"MATH",s:50},{n:"SOM",s:91},{n:"BIO",s:75},{n:"CHEM",s:88},{n:"ICT",s:94},{n:"ENG",s:83},{n:"GEO",s:92},{n:"HIS",s:97}] },
-        "YK26001011": { n: "MOHAMUD ABSHIR SAID", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 818, a: 74.4, g: "B-", sb: [{n:"ISLAM",s:79},{n:"ARABI",s:86},{n:"PHY",s:51},{n:"MATH",s:59},{n:"SOM",s:100},{n:"BIO",s:58},{n:"CHEM",s:55},{n:"ICT",s:80},{n:"ENG",s:83},{n:"GEO",s:88},{n:"HIS",s:79}] },
-        "YK26001007": { n: "XAFSO XASAN CISMAAN", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 807, a: 73.4, g: "B-", sb: [{n:"ISLAM",s:92},{n:"ARABI",s:61},{n:"PHY",s:64},{n:"MATH",s:52},{n:"SOM",s:91},{n:"BIO",s:51},{n:"CHEM",s:66},{n:"ICT",s:80},{n:"ENG",s:85},{n:"GEO",s:74},{n:"HIS",s:91}] },
-        "YK26001010": { n: "MUXIIDIIN AXMED MAXAMED", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 799, a: 72.6, g: "B-", sb: [{n:"ISLAM",s:69},{n:"ARABI",s:52},{n:"PHY",s:72},{n:"MATH",s:60},{n:"SOM",s:88},{n:"BIO",s:67},{n:"CHEM",s:62},{n:"ICT",s:93},{n:"ENG",s:75},{n:"GEO",s:73},{n:"HIS",s:88}] },
-        "YK26001008": { n: "MAXAMUD CISMAN CAJAB", c: "FORM 3", s: "YAKA SCHOOL", p: true, t: 768, a: 69.8, g: "C+", sb: [{n:"ISLAM",s:80},{n:"ARABI",s:50},{n:"PHY",s:50},{n:"MATH",s:40},{n:"SOM",s:76},{n:"BIO",s:65},{n:"CHEM",s:72},{n:"ICT",s:95},{n:"ENG",s:65},{n:"GEO",s:78},{n:"HIS",s:97}] },
-
-        // ==================== FORM 2 STUDENTS ====================  waxay leeyihiin 11 maado
-        "YK26001017": { n: "AYUUB C/CASIIS XASAN", c: "FORM 2", s: "YAKA SCHOOL", p: true, t: 824, a: 74.9, g: "B-", sb: [{n:"ISLAM",s:87},{n:"ARABI",s:96},{n:"PHY",s:45},{n:"MATH",s:56},{n:"SOM",s:77},{n:"BIO",s:46},{n:"CHEM",s:75},{n:"ICT",s:97},{n:"ENG",s:93},{n:"GEO",s:92},{n:"HIS",s:80}] },
-        "YK26001018": { n: "FADUMO CISMAN C/LAHI", c: "FORM 2", s: "YAKA SCHOOL", p: true, t: 798, a: 72.5, g: "B-", sb: [{n:"ISLAM",s:91},{n:"ARABI",s:89},{n:"PHY",s:50},{n:"MATH",s:65},{n:"SOM",s:98},{n:"BIO",s:72},{n:"CHEM",s:50},{n:"ICT",s:70},{n:"ENG",s:73},{n:"GEO",s:70},{n:"HIS",s:70}] },
-        "YK26001014": { n: "MUKHTAR AXMED MAXAMED", c: "FORM 2", s: "YAKA SCHOOL", p: true, t: 792, a: 72, g: "B-", sb: [{n:"ISLAM",s:95},{n:"ARABI",s:91},{n:"PHY",s:53},{n:"MATH",s:52},{n:"SOM",s:67},{n:"BIO",s:52},{n:"CHEM",s:40},{n:"ICT",s:77},{n:"ENG",s:93},{n:"GEO",s:95},{n:"HIS",s:77}] },
-        "YK26001013": { n: "MAXAMED C/MALIK KHALIIF", c: "FORM 2", s: "YAKA SCHOOL", p: true, t: 786, a: 71.5, g: "B-", sb: [{n:"ISLAM",s:92},{n:"ARABI",s:88},{n:"PHY",s:45},{n:"MATH",s:45},{n:"SOM",s:79},{n:"BIO",s:65},{n:"CHEM",s:50},{n:"ICT",s:70},{n:"ENG",s:93},{n:"GEO",s:71},{n:"HIS",s:88}] },
-        "YK26001012": { n: "MAXAMED MAXAMUD CABDI", c: "FORM 2", s: "YAKA SCHOOL", p: true, t: 752, a: 68.4, g: "C+", sb: [{n:"ISLAM",s:67},{n:"ARABI",s:60},{n:"PHY",s:52},{n:"MATH",s:52},{n:"SOM",s:89},{n:"BIO",s:71},{n:"CHEM",s:66},{n:"ICT",s:73},{n:"ENG",s:89},{n:"GEO",s:70},{n:"HIS",s:63}] },
-        "YK26001015": { n: "C/LAAHI MAXAMED C/LAHI", c: "FORM 2", s: "YAKA SCHOOL", p: false, t: 713, a: 64.8, g: "C", sb: [{n:"ISLAM",s:50},{n:"ARABI",s:79},{n:"PHY",s:50},{n:"MATH",s:46},{n:"SOM",s:81},{n:"BIO",s:71},{n:"CHEM",s:36},{n:"ICT",s:70},{n:"ENG",s:97},{n:"GEO",s:67},{n:"HIS",s:66}] },
-        "YK26001016": { n: "AXMED C/RASHIID XASAN", c: "FORM 2", s: "YAKA SCHOOL", p: true, t: 640, a: 58.2, g: "C-", sb: [{n:"ISLAM",s:100},{n:"ARABI",s:87},{n:"PHY",s:47},{n:"MATH",s:50},{n:"SOM",s:0},{n:"BIO",s:45},{n:"CHEM",s:45},{n:"ICT",s:73},{n:"ENG",s:95},{n:"GEO",s:73},{n:"HIS",s:70}] },
-
-        // ==================== FORM 1 STUDENTS ==================== waxay leeyihiin 11 maado 
-        "YK26001030": { n: "FADUMO XISRSI MAXAMUD", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 1053, a: 95.7, g: "A+", sb: [{n:"ISLAM",s:100},{n:"ARABI",s:96},{n:"PHY",s:100},{n:"MATH",s:94},{n:"SOM",s:96},{n:"BIO",s:90},{n:"CHEM",s:95},{n:"ICT",s:100},{n:"ENG",s:90},{n:"GEO",s:99},{n:"HIS",s:93}] },
-        "YK26001031": { n: "XUBBI AXMED JAAMAC", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 947, a: 86.1, g: "A-", sb: [{n:"ISLAM",s:95},{n:"ARABI",s:90},{n:"PHY",s:89},{n:"MATH",s:70},{n:"SOM",s:88},{n:"BIO",s:80},{n:"CHEM",s:70},{n:"ICT",s:96},{n:"ENG",s:86},{n:"GEO",s:93},{n:"HIS",s:90}] },
-        "YK26001020": { n: "C/SHAKUR C/KHALIF MAXU'D", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 938, a: 85.3, g: "A-", sb: [{n:"ISLAM",s:91},{n:"ARABI",s:92},{n:"PHY",s:78},{n:"MATH",s:60},{n:"SOM",s:86},{n:"BIO",s:72},{n:"CHEM",s:87},{n:"ICT",s:100},{n:"ENG",s:95},{n:"GEO",s:97},{n:"HIS",s:80}] },
-        "YK26001019": { n: "MAXAMED C/QANI CALI", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 878, a: 79.8, g: "B", sb: [{n:"ISLAM",s:91},{n:"ARABI",s:92},{n:"PHY",s:66},{n:"MATH",s:50},{n:"SOM",s:92},{n:"BIO",s:64},{n:"CHEM",s:74},{n:"ICT",s:100},{n:"ENG",s:95},{n:"GEO",s:80},{n:"HIS",s:74}] },
-        "YK26001029": { n: "MAXAMED XUSEEN C/QADIR", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 801, a: 72.8, g: "B-", sb: [{n:"ISLAM",s:69},{n:"ARABI",s:68},{n:"PHY",s:76},{n:"MATH",s:62},{n:"SOM",s:86},{n:"BIO",s:61},{n:"CHEM",s:31},{n:"ICT",s:90},{n:"ENG",s:89},{n:"GEO",s:92},{n:"HIS",s:77}] },
-        "YK26001028": { n: "C/WAASAC C/RASAQ AXMED", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 783, a: 71.2, g: "B-", sb: [{n:"ISLAM",s:61},{n:"ARABI",s:90},{n:"PHY",s:56},{n:"MATH",s:66},{n:"SOM",s:82},{n:"BIO",s:57},{n:"CHEM",s:25},{n:"ICT",s:92},{n:"ENG",s:94},{n:"GEO",s:90},{n:"HIS",s:70}] },
-        "YK26001033": { n: "SAKARIYE JAAMAC CABDI", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 772, a: 70.2, g: "B-", sb: [{n:"ISLAM",s:70},{n:"ARABI",s:86},{n:"PHY",s:52},{n:"MATH",s:50},{n:"SOM",s:78},{n:"BIO",s:54},{n:"CHEM",s:20},{n:"ICT",s:96},{n:"ENG",s:88},{n:"GEO",s:84},{n:"HIS",s:84}] },
-        "YK26001027": { n: "SAKARIYE MAXAMED BARRE", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 764, a: 69.5, g: "C+", sb: [{n:"ISLAM",s:51},{n:"ARABI",s:81},{n:"PHY",s:67},{n:"MATH",s:52},{n:"SOM",s:88},{n:"BIO",s:60},{n:"CHEM",s:35},{n:"ICT",s:78},{n:"ENG",s:87},{n:"GEO",s:89},{n:"HIS",s:76}] },
-        "YK26001023": { n: "MAXAMED C/RISAAQ KHALIIF", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 763, a: 69.4, g: "C+", sb: [{n:"ISLAM",s:59},{n:"ARABI",s:77},{n:"PHY",s:56},{n:"MATH",s:56},{n:"SOM",s:64},{n:"BIO",s:66},{n:"CHEM",s:30},{n:"ICT",s:92},{n:"ENG",s:95},{n:"GEO",s:88},{n:"HIS",s:80}] },
-        "YK26001025": { n: "MAXAMUD MAXE'D CUMAR", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 745, a: 67.7, g: "C+", sb: [{n:"ISLAM",s:50},{n:"ARABI",s:94},{n:"PHY",s:49},{n:"MATH",s:62},{n:"SOM",s:90},{n:"BIO",s:53},{n:"CHEM",s:40},{n:"ICT",s:84},{n:"ENG",s:89},{n:"GEO",s:61},{n:"HIS",s:73}] },
-        "YK26001022": { n: "USAME SICIID CABDI", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 707, a: 64.3, g: "C", sb: [{n:"ISLAM",s:50},{n:"ARABI",s:94},{n:"PHY",s:70},{n:"MATH",s:50},{n:"SOM",s:78},{n:"BIO",s:53},{n:"CHEM",s:10},{n:"ICT",s:88},{n:"ENG",s:83},{n:"GEO",s:65},{n:"HIS",s:66}] },
-        "YK26001034": { n: "C/LAAHI ABSHIR SICIID", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 681, a: 61.9, g: "C", sb: [{n:"ISLAM",s:50},{n:"ARABI",s:50},{n:"PHY",s:55},{n:"MATH",s:50},{n:"SOM",s:92},{n:"BIO",s:54},{n:"CHEM",s:26},{n:"ICT",s:88},{n:"ENG",s:86},{n:"GEO",s:62},{n:"HIS",s:68}] },
-        "YK26001024": { n: "AXMED MAXAMED AXMED", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 675, a: 61.4, g: "C", sb: [{n:"ISLAM",s:50},{n:"ARABI",s:76},{n:"PHY",s:51},{n:"MATH",s:50},{n:"SOM",s:72},{n:"BIO",s:55},{n:"CHEM",s:20},{n:"ICT",s:80},{n:"ENG",s:84},{n:"GEO",s:65},{n:"HIS",s:72}] },
-        "YK26001032": { n: "AXMED MAXAMED BARRE", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 670, a: 60.9, g: "C", sb: [{n:"ISLAM",s:50},{n:"ARABI",s:50},{n:"PHY",s:45},{n:"MATH",s:54},{n:"SOM",s:80},{n:"BIO",s:58},{n:"CHEM",s:15},{n:"ICT",s:84},{n:"ENG",s:88},{n:"GEO",s:73},{n:"HIS",s:73}] },
-        "YK26001035": { n: "CUMAR MAXU'D XIRSI", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 663, a: 60.3, g: "C", sb: [{n:"ISLAM",s:20},{n:"ARABI",s:50},{n:"PHY",s:50},{n:"MATH",s:50},{n:"SOM",s:90},{n:"BIO",s:64},{n:"CHEM",s:25},{n:"ICT",s:84},{n:"ENG",s:78},{n:"GEO",s:73},{n:"HIS",s:79}] },
-        "YK26001021": { n: "C/LADIIF C/LAHI MAXAMED", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 662, a: 60.2, g: "C", sb: [{n:"ISLAM",s:28},{n:"ARABI",s:75},{n:"PHY",s:44},{n:"MATH",s:47},{n:"SOM",s:84},{n:"BIO",s:47},{n:"CHEM",s:22},{n:"ICT",s:88},{n:"ENG",s:75},{n:"GEO",s:70},{n:"HIS",s:72}] },
-        "YK26001026": { n: "NUUR CISMAN MAXAMED", c: "FORM 1", s: "YAKA SCHOOL", p: true, t: 660, a: 60, g: "C", sb: [{n:"ISLAM",s:50},{n:"ARABI",s:50},{n:"PHY",s:55},{n:"MATH",s:60},{n:"SOM",s:96},{n:"BIO",s:44},{n:"CHEM",s:20},{n:"ICT",s:62},{n:"ENG",s:88},{n:"GEO",s:75},{n:"HIS",s:60}] },
-    "YK26001063": { n: "MAXAMED FAARAX CABDI", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 757, a: 94.625, g: "A", sb: [{n:"ISLAMI",s:100},{n:"ARABIC",s:92},{n:"XISAB",s:88},{n:"SOM",s:98},{n:"ICT",s:100},{n:"C/BULSHO",s:89},{n:"SAYNIS",s:96},{n:"ENGLISH",s:94}] },
-        "YK26001082": { n: "XAAWO C/NUUR FAARAX", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 718, a: 89.75, g: "A-", sb: [{n:"ISLAMI",s:100},{n:"ARABIC",s:97},{n:"XISAB",s:72},{n:"SOM",s:90},{n:"ICT",s:88},{n:"C/BULSHO",s:87},{n:"SAYNIS",s:89},{n:"ENGLISH",s:95}] },
-        "YK26001066": { n: "C/KHALIIF C/AXMED", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 717, a: 89.625, g: "A-", sb: [{n:"ISLAMI",s:100},{n:"ARABIC",s:92},{n:"XISAB",s:75},{n:"SOM",s:100},{n:"ICT",s:97},{n:"C/BULSHO",s:80},{n:"SAYNIS",s:79},{n:"ENGLISH",s:94}] },
-        "YK26001062": { n: "MAXAMED C/LAAHI XIRSI", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 681, a: 85.125, g: "A-", sb: [{n:"ISLAMI",s:97},{n:"ARABIC",s:89},{n:"XISAB",s:82},{n:"SOM",s:78},{n:"ICT",s:60},{n:"C/BULSHO",s:88},{n:"SAYNIS",s:92},{n:"ENGLISH",s:95}] },
-        "YK26001074": { n: "XALLIMO XASAN CISMAAN", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 674, a: 84.25, g: "B+", sb: [{n:"ISLAMI",s:99},{n:"ARABIC",s:89},{n:"XISAB",s:60},{n:"SOM",s:97},{n:"ICT",s:68},{n:"C/BULSHO",s:85},{n:"SAYNIS",s:92},{n:"ENGLISH",s:84}] },
-        "YK26001076": { n: "MUMTAAS MAXAMED YAXYE", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 648, a: 81, g: "B+", sb: [{n:"ISLAMI",s:100},{n:"ARABIC",s:81},{n:"XISAB",s:76},{n:"SOM",s:76},{n:"ICT",s:88},{n:"C/BULSHO",s:70},{n:"SAYNIS",s:73},{n:"ENGLISH",s:84}] },
-        "YK26001068": { n: "C/XAKIIN C/KHALIIF MAXAMED", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 646, a: 80.75, g: "B+", sb: [{n:"ISLAMI",s:100},{n:"ARABIC",s:87},{n:"XISAB",s:86},{n:"SOM",s:80},{n:"ICT",s:65},{n:"C/BULSHO",s:69},{n:"SAYNIS",s:70},{n:"ENGLISH",s:89}] },
-        "YK26001069": { n: "C/KARIIM C/RAXMAAN CIISE", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 610, a: 76.25, g: "B", sb: [{n:"ISLAMI",s:98},{n:"ARABIC",s:64},{n:"XISAB",s:75},{n:"SOM",s:86},{n:"ICT",s:68},{n:"C/BULSHO",s:71},{n:"SAYNIS",s:69},{n:"ENGLISH",s:79}] },
-        "YK26001065": { n: "MOWLIID MAXAMED CUMAR", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 604, a: 75.5, g: "B", sb: [{n:"ISLAMI",s:95},{n:"ARABIC",s:68},{n:"XISAB",s:54},{n:"SOM",s:81},{n:"ICT",s:60},{n:"C/BULSHO",s:87},{n:"SAYNIS",s:78},{n:"ENGLISH",s:81}] },
-        "YK26001064": { n: "AXMED MAXAMED JAAMAC", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 585, a: 73.125, g: "B", sb: [{n:"ISLAMI",s:98},{n:"ARABIC",s:64},{n:"XISAB",s:56},{n:"SOM",s:80},{n:"ICT",s:53},{n:"C/BULSHO",s:78},{n:"SAYNIS",s:84},{n:"ENGLISH",s:72}] },
-        "YK26001075": { n: "XAAWO C/CASIIS AADAN", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 580, a: 72.5, g: "B", sb: [{n:"ISLAMI",s:99},{n:"ARABIC",s:77},{n:"XISAB",s:56},{n:"SOM",s:88},{n:"ICT",s:74},{n:"C/BULSHO",s:52},{n:"SAYNIS",s:64},{n:"ENGLISH",s:70}] },
-        "YK26001060": { n: "C/LAAHI C/XAKIIN MAXAMED", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 566, a: 70.75, g: "B", sb: [{n:"ISLAMI",s:88},{n:"ARABIC",s:89},{n:"XISAB",s:45},{n:"SOM",s:63},{n:"ICT",s:65},{n:"C/BULSHO",s:78},{n:"SAYNIS",s:73},{n:"ENGLISH",s:65}] },
-        "YK26001073": { n: "XAAWO MAXAMUUD CUMAR", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 560, a: 70, g: "B", sb: [{n:"ISLAMI",s:85},{n:"ARABIC",s:58},{n:"XISAB",s:56},{n:"SOM",s:83},{n:"ICT",s:56},{n:"C/BULSHO",s:72},{n:"SAYNIS",s:75},{n:"ENGLISH",s:75}] },
-        "YK26001071": { n: "YUUSUF MAXAMED SICIID", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 546, a: 68.25, g: "C+", sb: [{n:"ISLAMI",s:79},{n:"ARABIC",s:50},{n:"XISAB",s:58},{n:"SOM",s:85},{n:"ICT",s:79},{n:"C/BULSHO",s:68},{n:"SAYNIS",s:65},{n:"ENGLISH",s:62}] },
-        "YK26001081": { n: "XAAWO SALEEBAAN MAXAMED", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 539, a: 67.375, g: "C+", sb: [{n:"ISLAMI",s:100},{n:"ARABIC",s:88},{n:"XISAB",s:52},{n:"SOM",s:53},{n:"ICT",s:50},{n:"C/BULSHO",s:67},{n:"SAYNIS",s:65},{n:"ENGLISH",s:64}] },
-        "YK26001077": { n: "ISRO IBRAAHIM MAXAMED", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 526, a: 65.75, g: "C+", sb: [{n:"ISLAMI",s:61},{n:"ARABIC",s:50},{n:"XISAB",s:60},{n:"SOM",s:85},{n:"ICT",s:50},{n:"C/BULSHO",s:70},{n:"SAYNIS",s:67},{n:"ENGLISH",s:83}] },
-        "YK26001059": { n: "MAXAMED YAASIIN AXMED", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 520, a: 65, g: "C+", sb: [{n:"ISLAMI",s:100},{n:"ARABIC",s:50},{n:"XISAB",s:50},{n:"SOM",s:54},{n:"ICT",s:58},{n:"C/BULSHO",s:71},{n:"SAYNIS",s:61},{n:"ENGLISH",s:76}] },
-        "YK26001079": { n: "AMAAL C/RISAAQ SICIID", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 514, a: 64.25, g: "C", sb: [{n:"ISLAMI",s:75},{n:"ARABIC",s:28},{n:"XISAB",s:65},{n:"SOM",s:80},{n:"ICT",s:50},{n:"C/BULSHO",s:70},{n:"SAYNIS",s:85},{n:"ENGLISH",s:61}] },
-        "YK26001072": { n: "ASMAA C/LAAHI XIRSI", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 514, a: 64.25, g: "C", sb: [{n:"ISLAMI",s:90},{n:"ARABIC",s:56},{n:"XISAB",s:55},{n:"SOM",s:78},{n:"ICT",s:40},{n:"C/BULSHO",s:60},{n:"SAYNIS",s:67},{n:"ENGLISH",s:68}] },
-        "YK26001061": { n: "C/FUTAAX MAXAMED CILMI", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 506, a: 63.25, g: "C", sb: [{n:"ISLAMI",s:84},{n:"ARABIC",s:80},{n:"XISAB",s:42},{n:"SOM",s:59},{n:"ICT",s:50},{n:"C/BULSHO",s:70},{n:"SAYNIS",s:65},{n:"ENGLISH",s:56}] },
-        "YK26001070": { n: "MAXAMUUD ABSHIR FAARAX", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 505, a: 63.125, g: "C", sb: [{n:"ISLAMI",s:80},{n:"ARABIC",s:52},{n:"XISAB",s:56},{n:"SOM",s:80},{n:"ICT",s:50},{n:"C/BULSHO",s:60},{n:"SAYNIS",s:63},{n:"ENGLISH",s:64}] },
-        "YK26001080": { n: "MAA IDO ABSHIR SICIID", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 500, a: 62.5, g: "C", sb: [{n:"ISLAMI",s:98},{n:"ARABIC",s:50},{n:"XISAB",s:42},{n:"SOM",s:70},{n:"ICT",s:50},{n:"C/BULSHO",s:56},{n:"SAYNIS",s:69},{n:"ENGLISH",s:65}] },
-        "YK26001067": { n: "MAXAMED AADAN CUMAR", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 493, a: 61.625, g: "C", sb: [{n:"ISLAMI",s:87},{n:"ARABIC",s:61},{n:"XISAB",s:50},{n:"SOM",s:64},{n:"ICT",s:51},{n:"C/BULSHO",s:68},{n:"SAYNIS",s:57},{n:"ENGLISH",s:55}] },
-        "YK26001078": { n: "MAAIDO XUSEEN C/QAADIR", c: "GRADE 7", s: "YAKA SCHOOL", p: true, t: 470, a: 58.75, g: "C", sb: [{n:"ISLAMI",s:80},{n:"ARABIC",s:30},{n:"XISAB",s:45},{n:"SOM",s:52},{n:"ICT",s:50},{n:"C/BULSHO",s:67},{n:"SAYNIS",s:69},{n:"ENGLISH",s:77}] }
-    };
-    function eeg() {
-        const val = document.getElementById("roll").value.trim().toUpperCase();
-        document.getElementById("p1").classList.remove("active")
-        document.getElementById("p2").classList.add("active");
-        const info = document.getElementById("info"), cont = document.getElementById("content");
-        info.innerHTML = ""; cont.innerHTML = "";
-
-        if (val === "" || !db[val]) {
-            cont.innerHTML = `<div class="alert">ROLL NUMBER-KU WAA KHALDANYAHAY FADLAN HUBI.</div>`;
-            return;
-        }
-        const st = db[val];
-        if (!st.p) {
-            cont.innerHTML = `<div class="alert">FADLAN ISKA BIXI LACAGTA FIIGA.</div>`;
-            return;
-        }
-
-        info.innerHTML = `<div class="result-header"><h2>Magaca Ardayga: ${st.n}</h2><p><strong>Roll Number:</strong> ${val} | <strong>Fasalka:</strong> ${st.c} | <strong>Iskuulka:</strong> ${st.s}</p></div>`;
-        let html = `<table><tr><th>Maaddo</th><th>Dhibco</th><th>Maaddo</th><th>Dhibco</th></tr>`;
-        for (let i = 0; i < st.sb.length; i += 2) {
-            let s1 = st.sb[i], s2 = st.sb[i+1] || {n:"-",s:"-"};
-            html += `<tr><td>${s1.n}</td><td>${s1.s}</td><td>${s2.n}</td><td>${s2.s}</td></tr>`;
-        }
-        let status = st.a > 40 ? "GUDBAY" : "DHACAY";
-        cont.innerHTML = html + `</table><div class="summary">
-            <div>--------------------<br><strong>Total:</strong> ${st.t}</div><div>--------------------<br><strong>Average:</strong> ${st.a}%</div>
-            <div><strong>Grade:</strong> ${st.g}</div><div><strong>GO'AAN:</strong> <span style="color:${st.a>=50?'var(--green)':'var(--red)'};font-weight:bold">${status}</span></div>
-        </div><div class="chairman">GUDOOMIYAHA GUDIGA IMTIXAANAADKA : ENG AHMED BIILE</div>`;
-    }
-
-    function back() {
-        document.getElementById("p2").classList.remove("active");
-        document.getElementById("p1").classList.add("active");
-        document.getElementById("roll").value = "";
-    }
-</script>
 </body>
 </html>
